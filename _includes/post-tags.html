@@ -1,0 +1,51 @@
+{% if include.post.tags.size > 0 %}
+  <div class="post-tags">
+    <span class="tags-label">Tags:</span>
+    {% for tag in include.post.tags %}
+      {% assign tag_name = tag | strip %}
+      <a href="{{ '/tags/' | relative_url }}#{{ tag_name | slugify }}" class="post-tag">{{ tag_name }}</a>
+      {% unless forloop.last %}<span class="tag-separator">, </span>{% endunless %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+<style>
+.post-tags {
+  margin: 1em 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.tags-label {
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+.post-tag {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.post-tag:hover {
+  text-decoration: underline;
+}
+
+.tag-separator {
+  color: #666;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .post-tags {
+    color: #aaa;
+  }
+  
+  .post-tag {
+    color: #66b3ff;
+  }
+  
+  .tag-separator {
+    color: #aaa;
+  }
+}
+</style>
