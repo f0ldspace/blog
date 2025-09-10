@@ -1,10 +1,9 @@
-# Site settings
 title: f0ld.space
 email: me@f0ld.space
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- 
   A simple Jekyll blog hosted on GitHub Pages.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://f0ld.space" # the base hostname & protocol for your site
+baseurl: "/" 
+url: "https://f0ld.space"
 twitter_username: f0ldspace
 github_username: f0ldspace
 
@@ -16,13 +15,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
 
-# Console theme settings
 header_pages:
   - index.html
   - README.md
   - search.html
 
-# Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
