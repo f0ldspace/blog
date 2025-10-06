@@ -4,7 +4,6 @@ description: >-
   A simple Jekyll blog hosted on GitHub Pages.
 baseurl: "/" 
 url: "https://f0ld.space"
-twitter_username: f0ldspace
 github_username: f0ldspace
 
 # Build settings
