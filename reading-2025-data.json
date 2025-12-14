@@ -1,0 +1,15 @@
+---
+layout: null
+---
+[
+  {% for book in site.data.reading-2025 %}
+    {
+      "date": {{ book.Date | jsonify }},
+      "title": {{ book.Title | jsonify }},
+      "category": {{ book.Category | jsonify }},
+      "type": {{ book.Type | jsonify }},
+      "rating": {{ book.Rating | jsonify }},
+      "format": {{ book.Format | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

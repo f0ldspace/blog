@@ -16,7 +16,7 @@ plugins:
 
 header_pages:
   - index.html
-  - README.md
+  - reading.md
   - search.html
 
 exclude:

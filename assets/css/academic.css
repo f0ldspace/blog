@@ -1,0 +1,182 @@
+/* Academic Paper Typography */
+.academic-paper {
+  font-family: 'Crimson Pro', 'Georgia', 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+}
+
+/* Header Section (spans full width) */
+.paper-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.paper-header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.paper-header .subtitle {
+  font-style: italic;
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.paper-header .author {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.paper-header .author a {
+  color: #1a5276;
+}
+
+/* Two-Column Layout */
+.paper-body {
+  column-count: 2;
+  column-gap: 2.5rem;
+  column-rule: 1px solid #ddd;
+}
+
+/* Sections */
+.paper-section {
+  break-inside: avoid-column;
+  margin-bottom: 1.5rem;
+}
+
+.paper-section h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #222;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+.section-number {
+  font-weight: normal;
+  margin-right: 0.3rem;
+}
+
+/* Paragraphs and Lists */
+.academic-paper p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.academic-paper ul,
+.academic-paper ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.academic-paper li {
+  margin-bottom: 0.4rem;
+}
+
+/* Links */
+.academic-paper a {
+  color: #1a5276;
+  text-decoration: none;
+  border-bottom: 1px dotted #1a5276;
+}
+
+.academic-paper a:hover {
+  border-bottom-style: solid;
+}
+
+/* Footnotes styling (kramdown generates these) */
+.academic-paper .footnotes {
+  font-size: 0.85rem;
+  border-top: 1px solid #ccc;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  column-span: all;
+}
+
+.academic-paper .footnotes ol {
+  padding-left: 1.5rem;
+}
+
+.academic-paper .footnotes p {
+  text-align: left;
+}
+
+/* Superscript footnote references */
+.academic-paper sup {
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+.academic-paper sup a {
+  border-bottom: none;
+}
+
+/* Responsive: Single column on mobile */
+@media (max-width: 768px) {
+  .paper-body {
+    column-count: 1;
+  }
+
+  .academic-paper {
+    padding: 1rem;
+    font-size: 16px;
+  }
+
+  .paper-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .academic-paper p {
+    text-align: left;
+    hyphens: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .academic-paper {
+    color: #e0e0e0;
+  }
+
+  .paper-header {
+    border-bottom-color: #444;
+  }
+
+  .paper-header .subtitle {
+    color: #aaa;
+  }
+
+  .paper-header .author {
+    color: #999;
+  }
+
+  .paper-section h2 {
+    color: #e0e0e0;
+    border-bottom-color: #444;
+  }
+
+  .paper-body {
+    column-rule-color: #444;
+  }
+
+  .academic-paper a,
+  .paper-header .author a {
+    color: #6db3f2;
+    border-bottom-color: #6db3f2;
+  }
+
+  .academic-paper .footnotes {
+    border-top-color: #444;
+  }
+}

@@ -1,0 +1,142 @@
+/* Reading Page Styles */
+.reading-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 20px;
+}
+
+.reading-container h1 {
+  margin-bottom: 0.5rem;
+}
+
+.reading-intro {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Charts Grid - 2x2 layout */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.chart-container {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.chart-container h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.chart-container canvas {
+  max-height: 280px;
+}
+
+/* Table styling - override theme defaults */
+.reading-table {
+  margin-top: 2rem;
+}
+
+.reading-table h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.reading-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.reading-table th,
+.reading-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  background: transparent;
+}
+
+.reading-table thead tr {
+  background: #f5f5f5;
+}
+
+.reading-table th {
+  font-weight: 600;
+  color: #333;
+}
+
+.reading-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.reading-table .rating {
+  font-weight: 500;
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+/* Responsive - single column on mobile */
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-container {
+    padding: 15px;
+  }
+
+  .reading-table {
+    overflow-x: auto;
+  }
+
+  .reading-table table {
+    min-width: 500px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .reading-intro {
+    color: #aaa;
+  }
+
+  .chart-container {
+    background: #1a1a1a;
+    border-color: #333;
+  }
+
+  .chart-container h2 {
+    color: #e0e0e0;
+  }
+
+  .reading-table thead tr {
+    background: #222;
+  }
+
+  .reading-table th {
+    color: #e0e0e0;
+  }
+
+  .reading-table td {
+    border-bottom-color: #333;
+    color: #e0e0e0;
+  }
+
+  .reading-table tbody tr:hover {
+    background: #1a1a1a;
+  }
+}
