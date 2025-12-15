@@ -13,6 +13,7 @@ permalink: /reading/
 <section class="paper-section">
 <h2><span class="section-number">I.</span> 2026</h2>
 <ul>
+  <li>☐ Proof of stake</li>
   <li>☐ Why machines learn</li>
   <li>☐ Build an LLM, Rashchka</li>
   <li>☐ The Alignment Problem</li>
