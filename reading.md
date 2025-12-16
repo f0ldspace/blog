@@ -11,9 +11,8 @@ permalink: /reading/
 
 <div class="paper-body">
 <section class="paper-section">
-<h2><span class="section-number">I.</span> 2026</h2>
+<h2><span class="section-number">I.</span> <a href="/reading/2026">2026</a></h2>
 <ul>
-  <li>☐ Proof of stake</li>
   <li>☐ Why machines learn</li>
   <li>☐ Build an LLM, Rashchka</li>
   <li>☐ The Alignment Problem</li>
