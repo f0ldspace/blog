@@ -10,6 +10,32 @@ permalink: /reading/2025/
   <h1>Reading Log 2025</h1>
   <p class="reading-intro">Visualization of my reading throughout 2025. <a href="/reading/">&larr; All years</a></p>
 
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card">
+      <span class="stat-value" id="statTotal">-</span>
+      <span class="stat-label">Books Read</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="statAvgRating">-</span>
+      <span class="stat-label">Avg Rating</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="statTopCategory">-</span>
+      <span class="stat-label">Top Category</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="statTopFormat">-</span>
+      <span class="stat-label">Top Format</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="statProjected">-</span>
+      <span class="stat-label">Projected Total</span>
+    </div>
+  </div>
+  <div class="highlights-section" id="highlightsSection">
+    <h2>Favorites</h2>
+    <ul id="highlightsList"></ul>
+  </div>
   <div class="charts-grid">
     <div class="chart-container">
       <h2>Category Breakdown</h2>
@@ -30,7 +56,24 @@ permalink: /reading/2025/
       <h2>Rating Distribution</h2>
       <canvas id="ratingChart"></canvas>
     </div>
+
+    <div class="chart-container">
+      <h2>Fiction vs Non-Fiction</h2>
+      <canvas id="typeChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <h2>Avg Rating by Category</h2>
+      <canvas id="avgRatingChart"></canvas>
+    </div>
   </div>
+
+  <div class="subcategory-charts">
+    <h2>Subcategory Breakdowns</h2>
+    <div class="charts-grid" id="subcategoryChartsGrid"></div>
+  </div>
+
+
 
   <div class="reading-table">
     <h2>All Books</h2>

@@ -14,6 +14,39 @@
   margin-bottom: 2rem;
 }
 
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4e79a7;
+  line-height: 1.2;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* Charts Grid - 2x2 layout */
 .charts-grid {
   display: grid;
@@ -38,6 +71,50 @@
 
 .chart-container canvas {
   max-height: 280px;
+}
+
+/* Subcategory charts section */
+.subcategory-charts {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.subcategory-charts > h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Highlights Section */
+.highlights-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.highlights-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.highlights-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlights-section li {
+  padding: 0.75rem 1rem;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
 }
 
 /* Table styling - override theme defaults */
@@ -91,6 +168,10 @@
 
 /* Responsive - single column on mobile */
 @media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .charts-grid {
     grid-template-columns: 1fr;
   }
@@ -108,9 +189,32 @@
   }
 }
 
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
+
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .reading-intro {
+    color: #aaa;
+  }
+
+  .stat-card {
+    background: #1a1a1a;
+    border-color: #333;
+  }
+
+  .stat-value {
+    color: #76b7b2;
+  }
+
+  .stat-label {
     color: #aaa;
   }
 
@@ -121,6 +225,21 @@
 
   .chart-container h2 {
     color: #e0e0e0;
+  }
+
+  .subcategory-charts > h2,
+  .highlights-section h2 {
+    color: #e0e0e0;
+  }
+
+  .highlights-section li {
+    background: #1a1a1a;
+    border-color: #333;
+    color: #e0e0e0;
+  }
+
+  .highlight-meta {
+    color: #aaa;
   }
 
   .reading-table thead tr {

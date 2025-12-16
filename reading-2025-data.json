@@ -7,6 +7,7 @@ layout: null
       "date": {{ book.Date | jsonify }},
       "title": {{ book.Title | jsonify }},
       "category": {{ book.Category | jsonify }},
+      "subcategory": {% if book.Category == "Politics" %}{{ book.Politics | jsonify }}{% elsif book.Category == "Technology" %}{{ book.Technology | jsonify }}{% elsif book.Category == "Religion" %}{{ book.Religion | jsonify }}{% else %}null{% endif %},
       "type": {{ book.Type | jsonify }},
       "rating": {{ book.Rating | jsonify }},
       "format": {{ book.Format | jsonify }}
