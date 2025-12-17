@@ -1,7 +1,4 @@
 Time,Participant,Date,Title,Category,Politics,Technology,Religion,Type,Rating,Format
-2025-12-16T17:19:29.696Z,f0ld,2025-11-03T12:00:00.000Z,The greatest story ever told,Religion,,,Christianity,Non-Fiction,6,Physical
-2025-12-16T17:19:43.408Z,f0ld,2025-11-16T12:00:00.000Z,Way of the heart Henri Nouwen,Religion,,,Christianity,Non-Fiction,5,Digital
-2025-12-16T17:19:55.357Z,f0ld,2025-01-01T12:00:00.000Z,Effective Altruism Magnus Vinding,Politics,Altruism,,,Non-Fiction,8,Digital
 2025-12-16T17:48:01.739Z,f0ld,2025-02-04T12:00:00.000Z,Living Theravada,Religion,,,Buddhism,Non-Fiction,5,Digital
 2025-12-16T17:48:08.255Z,f0ld,2025-01-22T12:00:00.000Z,Essence of the heart sutra,Religion,,,Buddhism,Non-Fiction,6,Audiobook
 2025-12-16T17:48:17.135Z,f0ld,2025-09-07T11:00:00.000Z,Superforecasting,Politics,Rationalist,,,Non-Fiction,7,Digital
@@ -15,3 +12,6 @@ Time,Participant,Date,Title,Category,Politics,Technology,Religion,Type,Rating,Fo
 2025-12-16T17:49:26.142Z,f0ld,2025-03-20T12:00:00.000Z,Bitcoin whitepaper,Technology,,Crypto,,Non-Fiction,8,Digital
 2025-12-16T17:49:32.090Z,f0ld,2025-09-10T11:00:00.000Z,The scouts mindset,Politics,Rationalist,,,Non-Fiction,6,Digital
 2025-12-16T17:53:11.997Z,f0ld,2025-12-16T12:00:00.000Z,"Proof of stake, Vitalik",Technology,,Crypto,,Non-Fiction,9,Audiobook
+2025-12-17T09:29:33.002Z,f0ld,2025-11-03T12:00:00.000Z,The greatest story ever told,Religion,,,Christianity,Non-Fiction,6,Physical
+2025-12-17T09:29:42.082Z,f0ld,2025-11-16T12:00:00.000Z,Way of the heart Henri Nouwen,Religion,,,Christianity,Non-Fiction,5,Digital
+2025-12-17T09:29:57.190Z,f0ld,2025-01-01T12:00:00.000Z,Effective Altruism Magnus Vinding,Politics,Altruism,,,Non-Fiction,6,Digital
