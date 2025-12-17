@@ -1,98 +1,116 @@
 .academic-paper {
   font-family: 'Crimson Pro', 'Georgia', 'Times New Roman', serif;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.7;
-  max-width: 900px;
+  max-width: 850px;
   margin: 0 auto;
-  padding: 2rem;
-  color: #333;
+  padding: 1.5rem;
+  color: var(--text-color, #3c3836);
 }
 
-/* Header Section (spans full width) */
+/* Header Section */
 .paper-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px dashed var(--code-color-18, #a89984);
 }
 
 .paper-header h1 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 600;
-  margin-bottom: 0.2rem;
+  margin: 0 0 0.5rem 0;
   letter-spacing: -0.02em;
+  color: var(--code-color-7, #9d0006);
 }
 
 .paper-header .subtitle {
   font-style: italic;
-  color: #555;
+  color: var(--code-color-11, #665c54);
   font-size: 1.1rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.5rem;
 }
 
 .paper-header .author {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--code-color-11, #665c54);
 }
 
 .paper-header .author a {
-  color: #1a5276;
+  color: var(--link-color, #076678);
+  border-bottom: 1px solid var(--link-color, #076678);
+  text-decoration: none;
 }
 
+.paper-header .author a:hover {
+  border-bottom-color: transparent;
+}
+
+/* Year heading outside columns */
+.academic-paper > h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
+  color: var(--code-color-7, #9d0006);
+}
+
+/* Two-column body */
 .paper-body {
   column-count: 2;
   column-gap: 2.5rem;
-  column-rule: 1px solid #ddd;
+  column-rule: 1px dashed var(--code-color-18, #a89984);
 }
 
 .paper-section {
   break-inside: avoid-column;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .paper-section h2 {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 0.2rem;
-  color: #222;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.3rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--code-color-5, #458588);
+  border-bottom: 1px solid var(--code-color-18, #a89984);
+  padding-bottom: 0.25rem;
 }
 
 .section-number {
   font-weight: normal;
-  margin-right: 0.3rem;
+  margin-right: 0.4rem;
+  color: var(--code-color-11, #665c54);
 }
 
 .academic-paper p {
   margin-bottom: 1rem;
-  text-align: justify;
-  hyphens: auto;
+  text-align: left;
 }
 
 .academic-paper ul,
 .academic-paper ol {
   margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
+  list-style: none;
 }
 
 .academic-paper li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
+  position: relative;
 }
 
 .academic-paper a {
-  color: #1a5276;
+  color: var(--link-color, #076678);
   text-decoration: none;
-  border-bottom: 1px dotted #1a5276;
+  border-bottom: 1px solid var(--link-color, #076678);
 }
 
 .academic-paper a:hover {
-  border-bottom-style: solid;
+  border-bottom-color: transparent;
 }
 
 .academic-paper .footnotes {
   font-size: 0.85rem;
-  border-top: 1px solid #ccc;
+  border-top: 1px dashed var(--code-color-18, #a89984);
   margin-top: 2rem;
   padding-top: 1rem;
   column-span: all;
@@ -113,6 +131,7 @@
 
 .academic-paper sup a {
   border-bottom: none;
+  color: var(--code-color-5, #458588);
 }
 
 @media (max-width: 768px) {
@@ -127,10 +146,5 @@
 
   .paper-header h1 {
     font-size: 1.8rem;
-  }
-
-  .academic-paper p {
-    text-align: left;
-    hyphens: none;
   }
 }

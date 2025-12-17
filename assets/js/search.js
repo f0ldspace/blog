@@ -86,58 +86,70 @@ class BlogSearch {
   }
   
   performSearch() {
-    const query = this.searchInput.value.toLowerCase().trim();
+    const rawQuery = this.searchInput.value.toLowerCase().trim();
     const selectedTag = this.tagFilter.value;
-    
+
+    // Split query into individual terms (supports multiple words)
+    const terms = rawQuery.split(/\s+/).filter(term => term.length > 0);
+
     let results = this.posts;
-    
+
     // Filter by tag
     if (selectedTag) {
-      results = results.filter(post => 
+      results = results.filter(post =>
         post.tags && post.tags.includes(selectedTag)
       );
     }
-    
-    // Filter by search query
-    if (query) {
+
+    // Filter by search query - ALL terms must match (AND search)
+    if (terms.length > 0) {
       results = results.filter(post => {
-        const titleMatch = post.title.toLowerCase().includes(query);
-        const contentMatch = post.content.toLowerCase().includes(query);
-        const tagMatch = post.tags && post.tags.some(tag => 
-          tag.toLowerCase().includes(query)
-        );
-        return titleMatch || contentMatch || tagMatch;
+        const titleLower = post.title.toLowerCase();
+        const contentLower = post.content.toLowerCase();
+        const tagsLower = post.tags ? post.tags.map(t => t.toLowerCase()) : [];
+
+        // Every term must appear somewhere in the post
+        return terms.every(term => {
+          const inTitle = titleLower.includes(term);
+          const inContent = contentLower.includes(term);
+          const inTags = tagsLower.some(tag => tag.includes(term));
+          return inTitle || inContent || inTags;
+        });
       });
-      
+
       // Add relevance scoring
       results.forEach(post => {
         let score = 0;
-        
-        // Title matches are worth more
-        if (post.title.toLowerCase().includes(query)) {
-          score += 10;
-        }
-        
-        // Tag matches are worth more
-        if (post.tags && post.tags.some(tag => 
-          tag.toLowerCase().includes(query)
-        )) {
-          score += 5;
-        }
-        
-        // Content matches
-        const contentMatches = (post.content.toLowerCase().match(new RegExp(query, 'g')) || []).length;
-        score += contentMatches;
-        
+        const titleLower = post.title.toLowerCase();
+        const contentLower = post.content.toLowerCase();
+        const tagsLower = post.tags ? post.tags.map(t => t.toLowerCase()) : [];
+
+        terms.forEach(term => {
+          // Title matches are worth more
+          if (titleLower.includes(term)) {
+            score += 10;
+          }
+
+          // Tag matches are worth more
+          if (tagsLower.some(tag => tag.includes(term))) {
+            score += 5;
+          }
+
+          // Count content matches
+          const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const contentMatches = (contentLower.match(new RegExp(escapedTerm, 'g')) || []).length;
+          score += contentMatches;
+        });
+
         post.relevanceScore = score;
       });
     }
-    
+
     // Sort results
     this.sortResults(results);
-    
+
     this.filteredPosts = results;
-    this.displayResults(results, query);
+    this.displayResults(results, terms);
   }
   
   sortResults(results) {
@@ -157,43 +169,49 @@ class BlogSearch {
     });
   }
   
-  displayResults(results, query) {
+  displayResults(results, terms) {
     if (results.length === 0) {
       this.searchResults.style.display = 'none';
       this.noResults.style.display = 'block';
       this.searchResultsCount.textContent = '';
       return;
     }
-    
+
     this.searchResults.style.display = 'block';
     this.noResults.style.display = 'none';
-    
+
     // Update results count
     const countText = results.length === 1 ? '1 post found' : results.length + ' posts found';
     this.searchResultsCount.textContent = countText;
-    
+
     // Generate HTML for results
-    const html = results.map(post => this.generateResultHTML(post, query)).join('');
+    const html = results.map(post => this.generateResultHTML(post, terms)).join('');
     this.searchResults.innerHTML = html;
   }
-  
-  generateResultHTML(post, query) {
-    const highlightedTitle = this.highlightText(post.title, query);
-    const highlightedExcerpt = this.highlightText(post.excerpt, query);
-    
+
+  generateResultHTML(post, terms) {
+    const highlightedTitle = this.highlightText(post.title, terms);
+    const highlightedExcerpt = this.highlightText(post.excerpt, terms);
+
     const tagsHTML = post.tags ? post.tags.map(tag => {
-      const isHighlighted = query && tag.toLowerCase().includes(query.toLowerCase());
+      const isHighlighted = terms && terms.length > 0 &&
+        terms.some(term => tag.toLowerCase().includes(term));
       return '<span class="tag' + (isHighlighted ? ' highlight' : '') + '">' + tag + '</span>';
     }).join('') : '';
-    
+
     return '<div class="search-result"><div class="result-title"><a href="' + post.url + '">' + highlightedTitle + '</a></div><div class="result-meta">' + post.date + '</div><div class="result-excerpt">' + highlightedExcerpt + '</div><div class="result-tags">' + tagsHTML + '</div></div>';
   }
-  
-  highlightText(text, query) {
-    if (!query) return text;
-    
-    const regex = new RegExp('(' + query + ')', 'gi');
-    return text.replace(regex, '<span class="highlight">$1</span>');
+
+  highlightText(text, terms) {
+    if (!terms || terms.length === 0) return text;
+
+    let result = text;
+    terms.forEach(term => {
+      const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp('(' + escapedTerm + ')', 'gi');
+      result = result.replace(regex, '<span class="highlight">$1</span>');
+    });
+    return result;
   }
 }
 
