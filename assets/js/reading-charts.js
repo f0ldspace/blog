@@ -1,4 +1,3 @@
-// Reading Visualizations using Chart.js
 class ReadingVisualizer {
   constructor(dataUrl) {
     this.dataUrl = dataUrl || '/reading-2025-data.json';
@@ -34,28 +33,24 @@ class ReadingVisualizer {
     }
   }
 
-  // Summary Stats
   renderStats() {
     const total = this.books.length;
     document.getElementById('statTotal').textContent = total;
 
-    // Average rating
     const avgRating = this.books.reduce((sum, b) => sum + parseInt(b.rating, 10), 0) / total;
     document.getElementById('statAvgRating').textContent = avgRating.toFixed(1);
 
-    // Top category
     const categories = {};
     this.books.forEach(b => categories[b.category] = (categories[b.category] || 0) + 1);
     const topCategory = Object.entries(categories).sort((a, b) => b[1] - a[1])[0];
     document.getElementById('statTopCategory').textContent = topCategory ? topCategory[0] : '-';
 
-    // Top format
     const formats = {};
     this.books.forEach(b => formats[b.format] = (formats[b.format] || 0) + 1);
     const topFormat = Object.entries(formats).sort((a, b) => b[1] - a[1])[0];
     document.getElementById('statTopFormat').textContent = topFormat ? topFormat[0] : '-';
 
-    // Projected year-end total
+    // broke as you get closer to year end
     const sortedDates = this.books.map(b => new Date(b.date)).sort((a, b) => a - b);
     if (sortedDates.length > 0) {
       const lastDate = sortedDates[sortedDates.length - 1];
@@ -70,7 +65,6 @@ class ReadingVisualizer {
     }
   }
 
-  // 1. Category Breakdown (Pie Chart)
   renderCategoryChart() {
     const categories = {};
     this.books.forEach(book => {
@@ -99,7 +93,6 @@ class ReadingVisualizer {
     });
   }
 
-  // 2. Reading Timeline (Bar Chart by Month)
   renderTimelineChart() {
     const monthlyData = {};
     this.books.forEach(book => {
@@ -108,7 +101,18 @@ class ReadingVisualizer {
       monthlyData[monthKey] = (monthlyData[monthKey] || 0) + 1;
     });
 
-    const sortedMonths = Object.keys(monthlyData).sort();
+    const existingMonths = Object.keys(monthlyData).sort();
+    const lastMonth = existingMonths[existingMonths.length - 1];
+    const [year, endMonth] = lastMonth.split('-').map(Number);
+
+    const sortedMonths = [];
+    for (let m = 1; m <= endMonth; m++) {
+      const monthKey = `${year}-${String(m).padStart(2, '0')}`;
+      sortedMonths.push(monthKey);
+      if (!monthlyData[monthKey]) {
+        monthlyData[monthKey] = 0;
+      }
+    }
 
     new Chart(document.getElementById('timelineChart'), {
       type: 'bar',
@@ -139,7 +143,6 @@ class ReadingVisualizer {
     });
   }
 
-  // 3. Format Distribution (Doughnut Chart)
   renderFormatChart() {
     const formats = {};
     this.books.forEach(book => {
@@ -168,7 +171,6 @@ class ReadingVisualizer {
     });
   }
 
-  // 4. Rating Distribution (Bar Chart)
   renderRatingChart() {
     const ratings = {};
     for (let i = 1; i <= 10; i++) ratings[i] = 0;
@@ -206,7 +208,6 @@ class ReadingVisualizer {
     });
   }
 
-  // 5. Fiction vs Non-Fiction (Doughnut Chart)
   renderTypeChart() {
     const types = {};
     this.books.forEach(book => {
@@ -235,7 +236,6 @@ class ReadingVisualizer {
     });
   }
 
-  // 6. Average Rating by Category (Bar Chart)
   renderAvgRatingChart() {
     const categoryRatings = {};
     const categoryCounts = {};
@@ -284,12 +284,10 @@ class ReadingVisualizer {
     });
   }
 
-  // 7. Subcategory Breakdowns (Dynamic Pie Charts)
   renderSubcategoryCharts() {
     const grid = document.getElementById('subcategoryChartsGrid');
     if (!grid) return;
 
-    // Group books by category and collect subcategories
     const categorySubcats = {};
     this.books.forEach(book => {
       if (book.subcategory) {
@@ -301,17 +299,14 @@ class ReadingVisualizer {
       }
     });
 
-    // Create a chart for each category that has subcategories
     Object.keys(categorySubcats).sort().forEach((category, index) => {
       const subcats = categorySubcats[category];
 
-      // Create container
       const container = document.createElement('div');
       container.className = 'chart-container';
       container.innerHTML = `<h2>${category}</h2><canvas id="subcat-${index}"></canvas>`;
       grid.appendChild(container);
 
-      // Render pie chart with rotated colors for variety
       const colorOffset = index * 2;
       const chartColors = [...this.colors.primary.slice(colorOffset), ...this.colors.primary.slice(0, colorOffset)];
       new Chart(document.getElementById(`subcat-${index}`), {
@@ -336,14 +331,12 @@ class ReadingVisualizer {
       });
     });
 
-    // Hide section if no subcategories exist
     if (Object.keys(categorySubcats).length === 0) {
       const section = document.querySelector('.subcategory-charts');
       if (section) section.style.display = 'none';
     }
   }
 
-  // 8. Highlights (Books rated 9-10)
   renderHighlights() {
     const section = document.getElementById('highlightsSection');
     const list = document.getElementById('highlightsList');
@@ -365,7 +358,6 @@ class ReadingVisualizer {
     });
   }
 
-  // Render data table
   renderTable() {
     const tbody = document.querySelector('#booksTable tbody');
     if (!tbody) return;
@@ -393,7 +385,6 @@ class ReadingVisualizer {
   }
 }
 
-// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   new ReadingVisualizer(window.READING_DATA_URL);
 });
