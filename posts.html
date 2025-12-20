@@ -3,16 +3,23 @@ layout: default
 title: /posts
 ---
 
-<link rel="stylesheet" href="/assets/css/search.css">
+<link rel="stylesheet" href="/assets/css/search.css" />
 
 <div class="search-container">
-  <h1>Search Posts</h1>
-  
+  <h1>Posts</h1>
+
   <div class="search-input-container">
-    <input type="text" id="search-input" placeholder="Search posts, tags, or content..." autocomplete="off">
-    <div id="search-loading" class="search-loading" style="display: none;">Searching...</div>
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search posts, tags, or content..."
+      autocomplete="off"
+    />
+    <div id="search-loading" class="search-loading" style="display: none">
+      Searching...
+    </div>
   </div>
-  
+
   <div class="search-filters">
     <div class="filter-group">
       <label>Filter by tags:</label>
@@ -29,10 +36,10 @@ title: /posts
       </select>
     </div>
   </div>
-  
+
   <div id="search-results-count" class="search-results-count"></div>
   <div id="search-results" class="search-results"></div>
-  <div id="no-results" class="no-results" style="display: none;">
+  <div id="no-results" class="no-results" style="display: none">
     <p>No posts found matching your search criteria.</p>
     <p>Try different keywords or check your spelling.</p>
   </div>

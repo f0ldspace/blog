@@ -1,11 +1,10 @@
 title: f0ld.space
 email: me@f0ld.space
-description: >- 
+description: >-
   A simple Jekyll blog hosted on GitHub Pages.
-baseurl: "/" 
+baseurl: "/"
 url: "https://f0ld.space"
 github_username: f0ldspace
-
 # Build settings
 remote_theme: f0ldspace/jekyll-theme-console
 style: light
@@ -13,12 +12,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
-
 header_pages:
   - index.html
   - reading.md
-  - search.html
-
+  - posts.html
 exclude:
   - Gemfile
   - Gemfile.lock
