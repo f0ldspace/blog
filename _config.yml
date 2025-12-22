@@ -15,6 +15,7 @@ plugins:
 header_pages:
   - index.html
   - reading.md
+  - anki.md
   - posts.html
 exclude:
   - Gemfile
