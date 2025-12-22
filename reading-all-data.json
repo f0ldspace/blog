@@ -1,10 +1,12 @@
 ---
 layout: null
 ---
+{%- assign all_books = site.data.reading-2025 | concat: site.data.reading-2026 -%}
 [
-  {% for book in site.data.reading-2025 %}
+  {% for book in all_books %}
     {
       "date": {{ book.Date | jsonify }},
+      "year": {{ book.Date | slice: 0, 4 | plus: 0 }},
       "title": {{ book.Title | jsonify }},
       "category": {{ book.Category | jsonify }},
       "subcategory": {{ book.Subcategory | jsonify }},

@@ -4,11 +4,9 @@ title: /reading
 permalink: /reading/
 ---
 
-
 <header class="paper-header">
   <h1>Reading</h1>
 </header>
-
 <div class="paper-body">
 <section class="paper-section">
 <h2><span class="section-number">I.</span> <a href="/reading/2026">2026</a></h2>
@@ -29,6 +27,7 @@ permalink: /reading/
 <section class="paper-section">
 <h2><span class="section-number">II.</span> Previous</h2>
 <ul>
+  <li><a href="/reading/all/">All time</a></li>
   <li><a href="/reading/2025/">2025</a></li>
 </ul>
 </section>

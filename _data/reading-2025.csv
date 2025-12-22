@@ -1,19 +1,19 @@
-Time,Participant,Date,Title,Category,Politics,Technology,Religion,Type,Rating,Format
-2025-12-16T17:48:01.739Z,f0ld,2025-02-04T12:00:00.000Z,Living Theravada,Religion,,,Buddhism,Non-Fiction,5,Digital
-2025-12-16T17:48:08.255Z,f0ld,2025-01-22T12:00:00.000Z,Essence of the heart sutra,Religion,,,Buddhism,Non-Fiction,6,Audiobook
-2025-12-16T17:48:17.135Z,f0ld,2025-09-07T11:00:00.000Z,Superforecasting,Politics,Rationalist,,,Non-Fiction,7,Digital
-2025-12-16T17:48:24.902Z,f0ld,2025-09-15T11:00:00.000Z,I have no mouth and I must scream,Sci-fi,,,,Fiction,9,Digital
-2025-12-16T17:48:33.455Z,f0ld,2025-11-07T12:00:00.000Z,Supremacy Olson,Technology,,AI,,Non-Fiction,6,Digital
-2025-12-16T17:48:42.835Z,f0ld,2025-11-30T12:00:00.000Z,Replacing Guilt Nate Soares,Politics,Rationalist,,,Non-Fiction,6,Audiobook
-2025-12-16T17:48:49.200Z,f0ld,2025-12-05T12:00:00.000Z,Project hail mary,Sci-fi,,,,Fiction,10,Audiobook
-2025-12-16T17:48:57.098Z,f0ld,2025-01-17T12:00:00.000Z,Random walk down wall street,Finance,,,,Non-Fiction,5,Digital
-2025-12-16T17:49:13.690Z,f0ld,2025-12-15T12:00:00.000Z,Joan of arc Hilaire Belloc,Religion,,,Catholic,Non-Fiction,3,Audiobook
-2025-12-16T17:49:19.642Z,f0ld,2025-01-13T12:00:00.000Z,Autocracy Inc,Politics,Capitalism,,,Non-Fiction,7,Audiobook
-2025-12-16T17:49:26.142Z,f0ld,2025-03-20T12:00:00.000Z,Bitcoin whitepaper,Technology,,Crypto,,Non-Fiction,8,Digital
-2025-12-16T17:49:32.090Z,f0ld,2025-09-10T11:00:00.000Z,The scouts mindset,Politics,Rationalist,,,Non-Fiction,6,Digital
-2025-12-16T17:53:11.997Z,f0ld,2025-12-16T12:00:00.000Z,"Proof of stake, Vitalik",Technology,,Crypto,,Non-Fiction,9,Audiobook
-2025-12-17T09:29:33.002Z,f0ld,2025-11-03T12:00:00.000Z,The greatest story ever told,Religion,,,Christianity,Non-Fiction,6,Physical
-2025-12-17T09:29:42.082Z,f0ld,2025-11-16T12:00:00.000Z,Way of the heart Henri Nouwen,Religion,,,Christianity,Non-Fiction,5,Digital
-2025-12-17T09:29:57.190Z,f0ld,2025-01-01T12:00:00.000Z,Effective Altruism Magnus Vinding,Politics,Altruism,,,Non-Fiction,6,Digital
-2025-12-18T20:28:46.975Z,f0ld,2025-12-18T12:00:00.000Z,Philosopher in the valley,Technology,,,,Non-Fiction,7,Digital
-2025-12-20T10:09:49.651Z,f0ld,2025-12-20T12:00:00.000Z,Slow Productivity,Politics,,,,Non-Fiction,3,Audiobook
+Date,Title,Rating,Category,Subcategory,Type,Format
+2025-02-04,Living Theravada,5,Religion,Buddhism,Non-Fiction,Digital
+2025-01-22,Essence of the heart sutra,6,Religion,Buddhism,Non-Fiction,Audiobook
+2025-09-07,Superforecasting,7,Politics,Rationalist,Non-Fiction,Digital
+2025-09-15,I have no mouth and I must scream,9,Sci-fi,,Fiction,Digital
+2025-11-07,Supremacy Olson,6,Technology,AI,Non-Fiction,Digital
+2025-11-30,Replacing Guilt Nate Soares,6,Politics,Rationalist,Non-Fiction,Audiobook
+2025-12-05,Project hail mary,10,Sci-fi,,Fiction,Audiobook
+2025-01-17,Random walk down wall street,5,Finance,,Non-Fiction,Digital
+2025-12-15,Joan of arc Hilaire Belloc,3,Religion,Catholic,Non-Fiction,Audiobook
+2025-01-13,Autocracy Inc,7,Politics,Capitalism,Non-Fiction,Audiobook
+2025-03-20,Bitcoin whitepaper,8,Technology,Crypto,Non-Fiction,Digital
+2025-09-10,The scouts mindset,6,Politics,Rationalist,Non-Fiction,Digital
+2025-12-16,"Proof of stake, Vitalik",9,Technology,Crypto,Non-Fiction,Audiobook
+2025-11-03,The greatest story ever told,6,Religion,Christianity,Non-Fiction,Physical
+2025-11-16,Way of the heart Henri Nouwen,5,Religion,Christianity,Non-Fiction,Digital
+2025-01-01,Effective Altruism Magnus Vinding,6,Politics,Altruism,Non-Fiction,Digital
+2025-12-18,Philosopher in the valley,7,Technology,,Non-Fiction,Digital
+2025-12-20,Slow Productivity,3,Politics,,Non-Fiction,Audiobook

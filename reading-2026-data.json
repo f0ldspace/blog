@@ -2,7 +2,7 @@
 layout: null
 ---
 [
-  {% for book in site.data.reading-2025 %}
+  {% for book in site.data.reading-2026 %}
     {
       "date": {{ book.Date | jsonify }},
       "title": {{ book.Title | jsonify }},
