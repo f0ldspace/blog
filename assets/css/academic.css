@@ -134,6 +134,38 @@
   color: var(--code-color-5, #458588);
 }
 
+/* Anki stats within academic layout */
+.anki-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.anki-stat-card {
+  border: 1px dashed var(--code-color-18, #a89984);
+  padding: 0.5rem;
+  text-align: center;
+  background: var(--background-color, #fbf1c7);
+}
+
+.anki-stat-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--link-color, #076678);
+  line-height: 1.2;
+}
+
+.anki-stat-label {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--code-color-11, #665c54);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-top: 0.15rem;
+}
+
 @media (max-width: 768px) {
   .paper-body {
     column-count: 1;
@@ -146,5 +178,9 @@
 
   .paper-header h1 {
     font-size: 1.8rem;
+  }
+
+  .anki-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
