@@ -3,42 +3,44 @@ layout: default
 title: /posts
 ---
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/search.css" />
 
-<div class="search-container">
-  <h1>Posts</h1>
+<div class="posts-page">
+  <header class="posts-header">
+    <h1>Posts</h1>
+  </header>
 
-  <div class="search-input-container">
-    <input
-      type="text"
-      id="search-input"
-      placeholder="Search posts, tags, or content..."
-      autocomplete="off"
-    />
-    <div id="search-loading" class="search-loading" style="display: none">
-      Searching...
-    </div>
-  </div>
-
-  <div class="search-filters">
-    <div class="filter-group">
-      <label>Filter by tags:</label>
-      <select id="tag-filter">
+  <div class="search-section">
+    <div class="search-row">
+      <div class="search-input-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search posts..."
+          autocomplete="off"
+        />
+        <div id="search-loading" class="search-loading" style="display: none">
+          Searching...
+        </div>
+      </div>
+      <select id="tag-filter" class="tag-filter-select">
         <option value="">All tags</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Sort by:</label>
-      <select id="sort-filter">
-        <option value="relevance">Relevance</option>
-        <option value="date">Date (newest first)</option>
-        <option value="title">Title (A-Z)</option>
       </select>
     </div>
   </div>
 
   <div id="search-results-count" class="search-results-count"></div>
-  <div id="search-results" class="search-results"></div>
+
+  <div id="posts-columns" class="posts-columns">
+    <div id="featured-post" class="featured-post"></div>
+    <div id="posts-list" class="posts-list"></div>
+  </div>
+
+  <div id="search-results" class="search-results" style="display: none"></div>
+
   <div id="no-results" class="no-results" style="display: none">
     <p>No posts found matching your search criteria.</p>
     <p>Try different keywords or check your spelling.</p>

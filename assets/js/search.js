@@ -4,12 +4,14 @@ class BlogSearch {
     this.filteredPosts = [];
     this.searchInput = document.getElementById('search-input');
     this.tagFilter = document.getElementById('tag-filter');
-    this.sortFilter = document.getElementById('sort-filter');
     this.searchResults = document.getElementById('search-results');
     this.searchResultsCount = document.getElementById('search-results-count');
     this.noResults = document.getElementById('no-results');
     this.searchLoading = document.getElementById('search-loading');
-    
+    this.postsColumns = document.getElementById('posts-columns');
+    this.featuredPost = document.getElementById('featured-post');
+    this.postsList = document.getElementById('posts-list');
+
     this.init();
   }
   
@@ -71,7 +73,6 @@ class BlogSearch {
   bindEvents() {
     this.searchInput.addEventListener('input', () => this.handleSearch());
     this.tagFilter.addEventListener('change', () => this.handleSearch());
-    this.sortFilter.addEventListener('change', () => this.handleSearch());
   }
   
   handleSearch() {
@@ -153,40 +154,84 @@ class BlogSearch {
   }
   
   sortResults(results) {
-    const sortBy = this.sortFilter.value;
-    
+    // Sort by relevance if searching, otherwise by date
     results.sort((a, b) => {
-      switch (sortBy) {
-        case 'relevance':
-          return (b.relevanceScore || 0) - (a.relevanceScore || 0);
-        case 'date':
-          return new Date(b.date) - new Date(a.date);
-        case 'title':
-          return a.title.localeCompare(b.title);
-        default:
-          return 0;
+      if (a.relevanceScore || b.relevanceScore) {
+        return (b.relevanceScore || 0) - (a.relevanceScore || 0);
       }
+      return new Date(b.date) - new Date(a.date);
     });
   }
   
   displayResults(results, terms) {
     if (results.length === 0) {
       this.searchResults.style.display = 'none';
+      if (this.postsColumns) this.postsColumns.style.display = 'none';
       this.noResults.style.display = 'block';
       this.searchResultsCount.textContent = '';
       return;
     }
 
-    this.searchResults.style.display = 'block';
     this.noResults.style.display = 'none';
 
-    // Update results count
-    const countText = results.length === 1 ? '1 post found' : results.length + ' posts found';
-    this.searchResultsCount.textContent = countText;
+    // Check if we're searching or just showing all posts
+    const isSearching = (terms && terms.length > 0) || this.tagFilter.value;
 
-    // Generate HTML for results
-    const html = results.map(post => this.generateResultHTML(post, terms)).join('');
-    this.searchResults.innerHTML = html;
+    if (isSearching) {
+      // Show traditional search results
+      if (this.postsColumns) this.postsColumns.style.display = 'none';
+      this.searchResults.style.display = 'block';
+
+      const countText = results.length === 1 ? '1 post found' : results.length + ' posts found';
+      this.searchResultsCount.textContent = countText;
+
+      const html = results.map(post => this.generateResultHTML(post, terms)).join('');
+      this.searchResults.innerHTML = html;
+    } else {
+      // Show two-column layout
+      this.searchResults.style.display = 'none';
+      if (this.postsColumns) {
+        this.postsColumns.style.display = 'grid';
+        this.displayColumnsLayout(results);
+      }
+      this.searchResultsCount.textContent = results.length + ' posts';
+    }
+  }
+
+  displayColumnsLayout(posts) {
+    // Sort by date (newest first) for column layout
+    const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // Featured post (most recent)
+    const featured = sortedPosts[0];
+    const otherPosts = sortedPosts.slice(1);
+
+    // Generate featured post HTML
+    if (this.featuredPost && featured) {
+      const tagsHTML = featured.tags ? featured.tags.map(tag =>
+        '<span class="tag">' + tag + '</span>'
+      ).join('') : '';
+
+      this.featuredPost.innerHTML = '<div class="featured-post-card">' +
+        '<h2><a href="' + featured.url + '">' + featured.title + '</a></h2>' +
+        '<div class="featured-post-meta">' + featured.date + '</div>' +
+        '<div class="featured-post-excerpt">' + featured.excerpt + '</div>' +
+        '<div class="featured-post-tags">' + tagsHTML + '</div>' +
+        '</div>';
+    }
+
+    // Generate posts list HTML
+    if (this.postsList) {
+      const listItemsHTML = otherPosts.map(post =>
+        '<li>' +
+        '<div class="posts-list-title"><a href="' + post.url + '">' + post.title + '</a></div>' +
+        '<div class="posts-list-date">' + post.date + '</div>' +
+        '</li>'
+      ).join('');
+
+      this.postsList.innerHTML = '<h3 class="posts-list-header">Archive</h3>' +
+        '<ul>' + listItemsHTML + '</ul>';
+    }
   }
 
   generateResultHTML(post, terms) {
