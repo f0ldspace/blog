@@ -33,6 +33,7 @@ permalink: /anki/
 <section class="paper-section">
 <h2><span class="section-number">II.</span> Previous</h2>
 <ul>
+  <li><a href="/anki/all/">All time</a></li>
   <li><a href="/anki/2025/">2025</a></li>
 </ul>
 </section>

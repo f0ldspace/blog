@@ -19,7 +19,6 @@ permalink: /reading/
   <li>☐ Computer Architecture</li>
   <li>☐ How Computers Really Work</li>
   <li>☐ The technological republic</li>
-  <li>☐ Zero to one</li>
 </ul>
 
 </section>
