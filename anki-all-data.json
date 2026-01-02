@@ -2,7 +2,7 @@
 layout: null
 ---
 [
-  {% for review in site.data.anki-2025 %}
+  {% for review in site.data.anki-all %}
     {
       "date": {{ review.review_date | jsonify }},
       "cardId": {{ review.card_id | jsonify }},
