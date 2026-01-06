@@ -14,3 +14,4 @@ WHERE datetime(id/1000, 'unixepoch') >= '2026-01-01'
 ORDER BY id;
 .quit
 EOF
+./anki-all.sh
