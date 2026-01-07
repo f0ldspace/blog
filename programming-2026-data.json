@@ -1,0 +1,13 @@
+---
+layout: null
+---
+[
+  {% for entry in site.data.programming-2026 %}
+    {
+      "date": {{ entry.date | jsonify }},
+      "type": {{ entry.type | jsonify }},
+      "name": {{ entry.name | jsonify }},
+      "totalSeconds": {{ entry.total_seconds | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

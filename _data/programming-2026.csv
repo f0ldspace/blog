@@ -1,0 +1,35 @@
+date,type,name,total_seconds
+2026-01-06,daily_total,,2485
+2026-01-06,language,Markdown,1021
+2026-01-06,language,Python,965
+2026-01-06,language,Rust,207
+2026-01-06,language,Nix,200
+2026-01-06,language,Unknown,88
+2026-01-06,language,Html,4
+2026-01-06,editor,Neovim,2397
+2026-01-06,editor,Claude-code,88
+2026-01-06,project,Leetcode,1172
+2026-01-06,project,wiki,591
+2026-01-06,project,trinity,441
+2026-01-06,project,playground,194
+2026-01-06,project,bootdev,87
+2026-01-06,category,coding,1376
+2026-01-06,category,writing docs,1021
+2026-01-06,category,ai coding,88
+2026-01-07,daily_total,,4795
+2026-01-07,language,Html,2135
+2026-01-07,language,Unknown,853
+2026-01-07,language,Markdown,615
+2026-01-07,language,Yaml,397
+2026-01-07,language,Css,319
+2026-01-07,language,Javascript,292
+2026-01-07,language,Bash,125
+2026-01-07,language,Json,56
+2026-01-07,editor,Claude,2176
+2026-01-07,editor,Neovim,1975
+2026-01-07,editor,Claude-code,644
+2026-01-07,project,blog,4492
+2026-01-07,project,Leetcode,303
+2026-01-07,category,ai coding,2820
+2026-01-07,category,coding,1863
+2026-01-07,category,writing docs,112
