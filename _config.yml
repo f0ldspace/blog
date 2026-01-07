@@ -14,8 +14,7 @@ plugins:
   - jekyll-remote-theme
 header_pages:
   - index.html
-  - reading.md
-  - anki.md
+  - stats.html
   - posts.html
 exclude:
   - Gemfile
