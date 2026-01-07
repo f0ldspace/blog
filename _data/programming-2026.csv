@@ -16,20 +16,38 @@ date,type,name,total_seconds
 2026-01-06,category,coding,1376
 2026-01-06,category,writing docs,1021
 2026-01-06,category,ai coding,88
-2026-01-07,daily_total,,4795
-2026-01-07,language,Html,2135
-2026-01-07,language,Unknown,853
-2026-01-07,language,Markdown,615
+2026-01-07,daily_total,,8452
+2026-01-07,language,Html,2333
+2026-01-07,language,Markdown,1484
+2026-01-07,language,Unknown,1478
+2026-01-07,language,Javascript,1468
+2026-01-07,language,Bash,687
 2026-01-07,language,Yaml,397
 2026-01-07,language,Css,319
-2026-01-07,language,Javascript,292
-2026-01-07,language,Bash,125
+2026-01-07,language,Python,228
 2026-01-07,language,Json,56
-2026-01-07,editor,Claude,2176
-2026-01-07,editor,Neovim,1975
-2026-01-07,editor,Claude-code,644
-2026-01-07,project,blog,4492
-2026-01-07,project,Leetcode,303
-2026-01-07,category,ai coding,2820
-2026-01-07,category,coding,1863
-2026-01-07,category,writing docs,112
+2026-01-07,editor,Neovim,3807
+2026-01-07,editor,Claude,3799
+2026-01-07,editor,Claude-code,846
+2026-01-07,project,blog,7856
+2026-01-07,project,Leetcode,570
+2026-01-07,project,wiki,26
+2026-01-07,category,ai coding,4646
+2026-01-07,category,coding,3589
+2026-01-07,category,writing docs,218
+,manual_language,Markdown,1280
+,manual_language,Html,1973
+,manual_language,Yaml,397
+,manual_language,Bash,437
+,manual_language,Python,643
+,manual_language,Javascript,863
+,manual_language,Nix,320
+,manual_language,,198
+,manual_language,Rust,168
+,ai_language,,1257
+,ai_language,Markdown,1373
+,ai_language,Css,559
+,ai_language,Html,957
+,ai_language,Bash,504
+,ai_language,Json,56
+,ai_language,Javascript,966

@@ -17,11 +17,14 @@
       const uniqueDays = new Set(dailyTotals.map(e => e.date)).size;
       const avgDaily = uniqueDays > 0 ? (totalSeconds / 3600 / uniqueDays).toFixed(1) : '0';
 
+      const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', ''];
       const languages = {};
-      entries.filter(e => e.type === 'language').forEach(e => {
+      entries.filter(e => e.type === 'manual_language').forEach(e => {
         languages[e.name] = (languages[e.name] || 0) + parseFloat(e.totalSeconds);
       });
-      const topLang = Object.entries(languages).sort((a, b) => b[1] - a[1])[0];
+      const topLang = Object.entries(languages)
+        .filter(([name]) => !excluded.includes(name.toLowerCase()))
+        .sort((a, b) => b[1] - a[1])[0];
 
       const categories = {};
       entries.filter(e => e.type === 'category').forEach(e => {

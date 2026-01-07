@@ -1,3 +1,4 @@
+echo "anki.sh start"
 sqlite3 ~/.local/share/Anki2/User\ 1/collection.anki2 <<EOF
 .headers on
 .mode csv
@@ -14,4 +15,4 @@ WHERE datetime(id/1000, 'unixepoch') >= '2026-01-01'
 ORDER BY id;
 .quit
 EOF
-./anki-all.sh
+echo "anki.sh end"

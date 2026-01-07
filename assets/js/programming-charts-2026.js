@@ -20,8 +20,8 @@ class ProgrammingVisualizer {
 
       this.renderStats();
       this.renderDailyChart();
-      this.renderLanguageChart();
-      this.renderEditorChart();
+      this.renderManualLanguageChart();
+      this.renderAiLanguageChart();
       this.renderAiChart();
       this.renderWeeklyChart();
       this.renderProjectChart();
@@ -46,6 +46,8 @@ class ProgrammingVisualizer {
   }
 
   renderStats() {
+    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', ''];
+
     const dailyTotals = this.filterByType('daily_total');
     const totalSeconds = dailyTotals.reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
     const totalHours = (totalSeconds / 3600).toFixed(1);
@@ -55,13 +57,19 @@ class ProgrammingVisualizer {
     const avgDaily = uniqueDays > 0 ? (totalSeconds / 3600 / uniqueDays).toFixed(1) : '0';
     document.getElementById('statAvgDaily').textContent = avgDaily;
 
-    const languages = this.aggregateByName(this.filterByType('language'));
-    const topLang = Object.entries(languages).sort((a, b) => b[1] - a[1])[0];
-    document.getElementById('statTopLanguage').textContent = topLang ? topLang[0] : '-';
+    // Top manual language (filtered)
+    const manualLangs = this.aggregateByName(this.filterByType('manual_language'));
+    const topManualLang = Object.entries(manualLangs)
+      .filter(([name]) => !excluded.includes(name.toLowerCase()))
+      .sort((a, b) => b[1] - a[1])[0];
+    document.getElementById('statTopLanguage').textContent = topManualLang ? topManualLang[0] : '-';
 
-    const editors = this.aggregateByName(this.filterByType('editor'));
-    const topEditor = Object.entries(editors).sort((a, b) => b[1] - a[1])[0];
-    document.getElementById('statTopEditor').textContent = topEditor ? topEditor[0] : '-';
+    // Top AI language (filtered)
+    const aiLangs = this.aggregateByName(this.filterByType('ai_language'));
+    const topAiLang = Object.entries(aiLangs)
+      .filter(([name]) => !excluded.includes(name.toLowerCase()))
+      .sort((a, b) => b[1] - a[1])[0];
+    document.getElementById('statTopAiLanguage').textContent = topAiLang ? topAiLang[0] : '-';
 
     const categories = this.aggregateByName(this.filterByType('category'));
     const aiSeconds = categories['ai coding'] || 0;
@@ -103,18 +111,18 @@ class ProgrammingVisualizer {
     });
   }
 
-  renderLanguageChart() {
-    const languages = this.aggregateByName(this.filterByType('language'));
-    const excluded = ['yaml', 'unknown', 'css', 'Yaml', 'Unknown', 'Css'];
+  renderManualLanguageChart() {
+    const languages = this.aggregateByName(this.filterByType('manual_language'));
+    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore'];
     const filtered = Object.fromEntries(
-      Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()) && !excluded.includes(name))
+      Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
     );
     const sorted = Object.entries(filtered).sort((a, b) => b[1] - a[1]).slice(0, 8);
 
     const langData = sorted.map(([, secs]) => secs);
     const langTotal = langData.reduce((a, b) => a + b, 0);
 
-    new Chart(document.getElementById('languageChart'), {
+    new Chart(document.getElementById('manualLanguageChart'), {
       type: 'doughnut',
       data: {
         labels: sorted.map(([lang]) => lang),
@@ -138,24 +146,23 @@ class ProgrammingVisualizer {
     });
   }
 
-  renderEditorChart() {
-    const rawEditors = this.aggregateByName(this.filterByType('editor'));
-    // Group Claude and Claude-code together
-    const editors = {};
-    for (const [name, secs] of Object.entries(rawEditors)) {
-      const key = name.toLowerCase().startsWith('claude') ? 'Claude' : name;
-      editors[key] = (editors[key] || 0) + secs;
-    }
+  renderAiLanguageChart() {
+    const languages = this.aggregateByName(this.filterByType('ai_language'));
+    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore'];
+    const filtered = Object.fromEntries(
+      Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
+    );
+    const sorted = Object.entries(filtered).sort((a, b) => b[1] - a[1]).slice(0, 8);
 
-    const editorData = Object.values(editors);
-    const editorTotal = editorData.reduce((a, b) => a + b, 0);
+    const langData = sorted.map(([, secs]) => secs);
+    const langTotal = langData.reduce((a, b) => a + b, 0);
 
-    new Chart(document.getElementById('editorChart'), {
+    new Chart(document.getElementById('aiLanguageChart'), {
       type: 'doughnut',
       data: {
-        labels: Object.keys(editors),
+        labels: sorted.map(([lang]) => lang),
         datasets: [{
-          data: editorData,
+          data: langData,
           backgroundColor: this.colors.primary.slice(2)
         }]
       },
@@ -166,7 +173,7 @@ class ProgrammingVisualizer {
           legend: { position: 'bottom', labels: { boxWidth: 12, padding: 10 } },
           tooltip: {
             callbacks: {
-              label: (ctx) => `${ctx.label}: ${((ctx.raw / editorTotal) * 100).toFixed(0)}%`
+              label: (ctx) => `${ctx.label}: ${((ctx.raw / langTotal) * 100).toFixed(0)}%`
             }
           }
         }
@@ -254,7 +261,7 @@ class ProgrammingVisualizer {
   renderProjectChart() {
     const projects = this.aggregateByName(this.filterByType('project'));
     const sorted = Object.entries(projects)
-      .filter(([name]) => name && name !== 'Unknown')
+      .filter(([name]) => name && name !== 'Unknown' && name.toLowerCase() !== 'blog' && name.toLowerCase() !== 'wiki')
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10);
 
@@ -274,7 +281,8 @@ class ProgrammingVisualizer {
         maintainAspectRatio: true,
         plugins: { legend: { display: false } },
         scales: {
-          x: { beginAtZero: true }
+          x: { beginAtZero: true },
+          y: { ticks: { autoSkip: false } }
         }
       }
     });
