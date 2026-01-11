@@ -113,7 +113,7 @@ class ProgrammingVisualizer {
 
   renderManualLanguageChart() {
     const languages = this.aggregateByName(this.filterByType('manual_language'));
-    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore'];
+    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'nix', 'ini', 'csv'];
     const filtered = Object.fromEntries(
       Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
     );

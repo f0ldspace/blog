@@ -18,7 +18,7 @@ permalink: /reading/
   <li>☐ Think Python</li>
   <li>☐ Computer Architecture</li>
   <li>☐ How Computers Really Work</li>
-  <li>☐ The technological republic</li>
+  <li>☑ The technological republic</li>
 </ul>
 
 </section>

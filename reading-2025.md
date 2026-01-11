@@ -8,9 +8,9 @@ permalink: /reading/2025/
 
 <div class="reading-container">
   <h1>Reading Log 2025</h1>
-  <p class="reading-intro">Visualization of my reading throughout 2025. <a href="/reading/">&larr; All years</a></p>
+  <p class="reading-intro">Visualization of my reading throughout 2025. <a href="/reading/all/">All years</a> // <a href="/reading/">&larr; Previous</a></p>
 
-  <div class="stats-grid" id="statsGrid">
+<div class="stats-grid" id="statsGrid">
     <div class="stat-card">
       <span class="stat-value" id="statTotal">-</span>
       <span class="stat-label">Books Read</span>
@@ -66,16 +66,15 @@ permalink: /reading/2025/
       <h2>Avg Rating by Category</h2>
       <canvas id="avgRatingChart"></canvas>
     </div>
-  </div>
 
-  <div class="subcategory-charts">
+</div>
+
+<div class="subcategory-charts">
     <h2>Subcategory Breakdowns</h2>
     <div class="charts-grid" id="subcategoryChartsGrid"></div>
   </div>
 
-
-
-  <div class="reading-table">
+<div class="reading-table">
     <h2>All Books</h2>
     <table id="booksTable">
       <thead>

@@ -16,35 +16,63 @@ date,type,name,total_seconds
 2026-01-06,category,coding,1376
 2026-01-06,category,writing docs,1021
 2026-01-06,category,ai coding,88
-2026-01-07,daily_total,,8452
+2026-01-07,daily_total,,9014
 2026-01-07,language,Html,2333
+2026-01-07,language,Javascript,1720
+2026-01-07,language,Unknown,1641
 2026-01-07,language,Markdown,1484
-2026-01-07,language,Unknown,1478
-2026-01-07,language,Javascript,1468
-2026-01-07,language,Bash,687
+2026-01-07,language,Bash,834
 2026-01-07,language,Yaml,397
 2026-01-07,language,Css,319
 2026-01-07,language,Python,228
 2026-01-07,language,Json,56
-2026-01-07,editor,Neovim,3807
-2026-01-07,editor,Claude,3799
+2026-01-07,editor,Neovim,4206
+2026-01-07,editor,Claude,3962
 2026-01-07,editor,Claude-code,846
-2026-01-07,project,blog,7856
+2026-01-07,project,blog,8418
 2026-01-07,project,Leetcode,570
 2026-01-07,project,wiki,26
-2026-01-07,category,ai coding,4646
-2026-01-07,category,coding,3589
+2026-01-07,category,ai coding,4808
+2026-01-07,category,coding,3988
 2026-01-07,category,writing docs,218
-,manual_language,Markdown,1280
+2026-01-08,daily_total,,537
+2026-01-08,language,Python,435
+2026-01-08,language,Markdown,102
+2026-01-08,editor,Neovim,537
+2026-01-08,project,Leetcode,435
+2026-01-08,project,wiki,102
+2026-01-08,category,coding,435
+2026-01-08,category,writing docs,102
+2026-01-09,daily_total,,638
+2026-01-09,language,Csv,437
+2026-01-09,language,Unknown,165
+2026-01-09,language,Javascript,35
+2026-01-09,editor,Neovim,472
+2026-01-09,editor,Claude,114
+2026-01-09,editor,Claude-code,50
+2026-01-09,project,blog,638
+2026-01-09,category,coding,472
+2026-01-09,category,ai coding,165
+2026-01-11,daily_total,,1172
+2026-01-11,language,Markdown,1169
+2026-01-11,language,Bash,3
+2026-01-11,editor,Neovim,1172
+2026-01-11,project,wiki,676
+2026-01-11,project,blog,496
+2026-01-11,category,writing docs,1169
+2026-01-11,category,coding,3
+,manual_language,Markdown,2930
+,manual_language,Python,924
+,manual_language,Ini,120
 ,manual_language,Html,1973
 ,manual_language,Yaml,397
-,manual_language,Bash,437
-,manual_language,Python,643
-,manual_language,Javascript,863
+,manual_language,Bash,707
+,manual_language,Javascript,1264
 ,manual_language,Nix,320
 ,manual_language,,198
 ,manual_language,Rust,168
-,ai_language,,1257
+,manual_language,Csv,437
+,ai_language,,1543
 ,ai_language,Markdown,1373
 ,ai_language,Css,559
 ,ai_language,Html,957

@@ -8,7 +8,7 @@ permalink: /anki/all/
 
 <div class="reading-container">
   <h1>Anki Stats All Time</h1>
-  <p class="reading-intro">Spaced repetition review statistics for all time. <a href="/anki/">&larr; All years</a></p>
+  <p class="reading-intro">Spaced repetition review statistics for all time. <a href="/anki/">&larr; Previous</a></p>
 
 <div class="stats-grid" id="statsGrid">
     <div class="stat-card">
