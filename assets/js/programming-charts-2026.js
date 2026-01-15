@@ -216,33 +216,53 @@ class ProgrammingVisualizer {
   }
 
   renderWeeklyChart() {
-    const dailyTotals = this.filterByType('daily_total');
-    const weeklyData = {};
+    const categories = this.filterByType('category');
+    const weeklyManual = {};
+    const weeklyAi = {};
 
-    dailyTotals.forEach(e => {
+    categories.forEach(e => {
+      if (!e.date) return;
       const week = this.getISOWeek(e.date);
-      weeklyData[week] = (weeklyData[week] || 0) + parseFloat(e.totalSeconds);
+      const name = (e.name || '').toLowerCase();
+      const seconds = parseFloat(e.totalSeconds);
+
+      if (name === 'coding' || name === 'writing docs') {
+        weeklyManual[week] = (weeklyManual[week] || 0) + seconds;
+      } else if (name === 'ai coding') {
+        weeklyAi[week] = (weeklyAi[week] || 0) + seconds;
+      }
     });
 
-    const sortedWeeks = Object.keys(weeklyData).sort();
+    const allWeeks = new Set([...Object.keys(weeklyManual), ...Object.keys(weeklyAi)]);
+    const sortedWeeks = Array.from(allWeeks).sort();
 
     new Chart(document.getElementById('weeklyChart'), {
       type: 'line',
       data: {
         labels: sortedWeeks.map(w => `Week ${w.split('-W')[1]}`),
-        datasets: [{
-          label: 'Hours',
-          data: sortedWeeks.map(w => (weeklyData[w] / 3600).toFixed(1)),
-          borderColor: this.colors.primary[4],
-          backgroundColor: this.colors.primary[4] + '33',
-          fill: true,
-          tension: 0.3
-        }]
+        datasets: [
+          {
+            label: 'Manual',
+            data: sortedWeeks.map(w => ((weeklyManual[w] || 0) / 3600).toFixed(1)),
+            borderColor: this.colors.ai.manual,
+            backgroundColor: this.colors.ai.manual + '33',
+            fill: true,
+            tension: 0.3
+          },
+          {
+            label: 'AI-Assisted',
+            data: sortedWeeks.map(w => ((weeklyAi[w] || 0) / 3600).toFixed(1)),
+            borderColor: this.colors.ai.ai,
+            backgroundColor: this.colors.ai.ai + '33',
+            fill: true,
+            tension: 0.3
+          }
+        ]
       },
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        plugins: { legend: { display: false } },
+        plugins: { legend: { display: true, position: 'bottom' } },
         scales: {
           y: { beginAtZero: true }
         }

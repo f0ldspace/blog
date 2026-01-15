@@ -53,29 +53,70 @@ date,type,name,total_seconds
 2026-01-09,project,blog,638
 2026-01-09,category,coding,472
 2026-01-09,category,ai coding,165
-2026-01-11,daily_total,,1172
-2026-01-11,language,Markdown,1169
+2026-01-11,daily_total,,1724
+2026-01-11,language,Markdown,1621
+2026-01-11,language,Unknown,100
 2026-01-11,language,Bash,3
-2026-01-11,editor,Neovim,1172
+2026-01-11,editor,Neovim,1579
+2026-01-11,editor,Claude-code,100
+2026-01-11,editor,Claude,44
+2026-01-11,project,blog,1004
 2026-01-11,project,wiki,676
-2026-01-11,project,blog,496
-2026-01-11,category,writing docs,1169
+2026-01-11,project,Leetcode,44
+2026-01-11,category,writing docs,1576
+2026-01-11,category,ai coding,145
 2026-01-11,category,coding,3
-,manual_language,Markdown,2930
+2026-01-13,daily_total,,1098
+2026-01-13,language,Yaml,792
+2026-01-13,language,Markdown,158
+2026-01-13,language,Unknown,148
+2026-01-13,editor,Neovim,885
+2026-01-13,editor,Claude-code,148
+2026-01-13,editor,Claude,65
+2026-01-13,project,Leetcode,857
+2026-01-13,project,playground,148
+2026-01-13,project,wiki,93
+2026-01-13,category,coding,792
+2026-01-13,category,ai coding,214
+2026-01-13,category,writing docs,93
+2026-01-14,daily_total,,356
+2026-01-14,language,Markdown,356
+2026-01-14,editor,Neovim,356
+2026-01-14,project,wiki,356
+2026-01-14,category,writing docs,356
+2026-01-15,daily_total,,2532
+2026-01-15,language,Python,950
+2026-01-15,language,Unknown,678
+2026-01-15,language,Typst,558
+2026-01-15,language,Markdown,174
+2026-01-15,language,Nix,74
+2026-01-15,language,Json,62
+2026-01-15,language,Bash,34
+2026-01-15,editor,Claude,2110
+2026-01-15,editor,Claude-code,388
+2026-01-15,editor,Neovim,34
+2026-01-15,project,Leetcode,2532
+2026-01-15,category,ai coding,2498
+2026-01-15,category,coding,34
+,manual_language,Csv,677
+,manual_language,Bash,861
+,manual_language,Markdown,4347
 ,manual_language,Python,924
 ,manual_language,Ini,120
 ,manual_language,Html,1973
-,manual_language,Yaml,397
-,manual_language,Bash,707
+,manual_language,Yaml,1100
 ,manual_language,Javascript,1264
+,manual_language,Netrw,14
 ,manual_language,Nix,320
 ,manual_language,,198
 ,manual_language,Rust,168
-,manual_language,Csv,437
-,ai_language,,1543
-,ai_language,Markdown,1373
+,ai_language,,2289
+,ai_language,Markdown,1779
+,ai_language,Python,1757
+,ai_language,Nix,74
+,ai_language,Typst,648
+,ai_language,Json,118
 ,ai_language,Css,559
 ,ai_language,Html,957
 ,ai_language,Bash,504
-,ai_language,Json,56
-,ai_language,Javascript,966
+,ai_language,Javascript,1086
