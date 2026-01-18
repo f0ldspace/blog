@@ -7,6 +7,7 @@ url: "https://f0ld.space"
 github_username: f0ldspace
 # Build settings
 remote_theme: f0ldspace/jekyll-theme-console
+# theme: jekyll-theme-console
 style: light
 plugins:
   - jekyll-feed
