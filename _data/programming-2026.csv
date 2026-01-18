@@ -148,7 +148,7 @@ date,type,name,total_seconds
 2026-01-18,category,coding,3148
 2026-01-18,category,writing docs,2127
 ,manual_language,Csv,1532
-,manual_language,Bash,6133
+,manual_language,Bash,6382
 ,manual_language,Markdown,8224
 ,manual_language,Html,2213
 ,manual_language,Python,924
