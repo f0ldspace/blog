@@ -10,7 +10,8 @@ layout: null
       "subcategory": {{ book.Subcategory | jsonify }},
       "type": {{ book.Type | jsonify }},
       "rating": {{ book.Rating | jsonify }},
-      "format": {{ book.Format | jsonify }}
+      "format": {{ book.Format | jsonify }},
+      "review": {{ book.Review | jsonify }}
     }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

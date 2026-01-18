@@ -1,19 +1,19 @@
-Date,Title,Rating,Category,Subcategory,Type,Format
-2025-02-04,Living Theravada,5,Religion,Buddhism,Non-Fiction,Digital
-2025-01-22,Essence of the heart sutra,6,Religion,Buddhism,Non-Fiction,Audiobook
-2025-09-07,Superforecasting,7,Politics,Rationalist,Non-Fiction,Digital
-2025-09-15,I have no mouth and I must scream,9,Sci-fi,,Fiction,Digital
-2025-11-07,Supremacy Olson,6,Technology,AI,Non-Fiction,Digital
-2025-11-30,Replacing Guilt Nate Soares,6,Politics,Rationalist,Non-Fiction,Audiobook
-2025-12-05,Project hail mary,10,Sci-fi,,Fiction,Audiobook
-2025-01-17,Random walk down wall street,5,Finance,,Non-Fiction,Digital
-2025-12-15,Joan of arc Hilaire Belloc,3,Religion,Catholic,Non-Fiction,Audiobook
-2025-01-13,Autocracy Inc,7,Politics,Capitalism,Non-Fiction,Audiobook
-2025-03-20,Bitcoin whitepaper,8,Technology,Crypto,Non-Fiction,Digital
-2025-09-10,The scouts mindset,6,Politics,Rationalist,Non-Fiction,Digital
-2025-12-16,"Proof of stake, Vitalik",9,Technology,Crypto,Non-Fiction,Audiobook
-2025-11-03,The greatest story ever told,6,Religion,Christianity,Non-Fiction,Physical
-2025-11-16,Way of the heart Henri Nouwen,5,Religion,Christianity,Non-Fiction,Digital
-2025-01-01,Effective Altruism Magnus Vinding,6,Politics,Altruism,Non-Fiction,Digital
-2025-12-18,Philosopher in the valley,7,Technology,,Non-Fiction,Digital
-2025-12-20,Slow Productivity,3,Politics,,Non-Fiction,Audiobook
+Date,Title,Rating,Category,Subcategory,Type,Format,Review
+2025-02-04,Living Theravada,5,Religion,Buddhism,Non-Fiction,Digital,"Good insight"
+2025-01-22,Essence of the heart sutra,6,Religion,Buddhism,Non-Fiction,Audiobook,"Bit long"
+2025-09-07,Superforecasting,7,Politics,Rationalist,Non-Fiction,Digital,"Insightful but drawn out"
+2025-09-15,I have no mouth and I must scream,9,Sci-fi,,Fiction,Digital,"Harrowing"
+2025-11-07,Supremacy Olson,6,Technology,AI,Non-Fiction,Digital,"Solid"
+2025-11-30,Replacing Guilt Nate Soares,6,Politics,Rationalist,Non-Fiction,Audiobook,"Very useful read for most people"
+2025-12-05,Project hail mary,10,Sci-fi,,Fiction,Audiobook,"Absolutely incredible"
+2025-01-17,Random walk down wall street,5,Finance,,Non-Fiction,Digital,"ok"
+2025-12-15,Joan of arc Hilaire Belloc,3,Religion,Catholic,Non-Fiction,Audiobook,"dragged out and poorly written"
+2025-01-13,Autocracy Inc,7,Politics,Capitalism,Non-Fiction,Audiobook,"worrying"
+2025-03-20,Bitcoin whitepaper,8,Technology,Crypto,Non-Fiction,Digital,"good"
+2025-09-10,The scouts mindset,6,Politics,Rationalist,Non-Fiction,Digital,"Really good but let down by being longer than a blogpost"
+2025-12-16,"Proof of stake, Vitalik",9,Technology,Crypto,Non-Fiction,Audiobook,"Incredible insight of scale"
+2025-11-03,The greatest story ever told,6,Religion,Christianity,Non-Fiction,Physical,"Not bad but not good"
+2025-11-16,Way of the heart Henri Nouwen,5,Religion,Christianity,Non-Fiction,Digital,"Dragged out"
+2025-01-01,Effective Altruism Magnus Vinding,6,Politics,Altruism,Non-Fiction,Digital,"Good foundation"
+2025-12-18,Philosopher in the valley,7,Technology,,Non-Fiction,Digital,"Really good insight into one of the most important people in the west"
+2025-12-20,Slow Productivity,3,Politics,,Non-Fiction,Audiobook,"Could have been a 2 minute blogpost"

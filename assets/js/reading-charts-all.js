@@ -452,12 +452,44 @@ class ReadingVisualizerAll {
       });
       row.innerHTML = `
         <td>${date}</td>
-        <td>${book.title}</td>
+        <td><span class="review-link">${book.title}</span></td>
         <td>${book.category}</td>
         <td>${book.format}</td>
         <td class="rating">${book.rating}/10</td>
       `;
+
+      const link = row.querySelector('.review-link');
+      link.addEventListener('click', () => {
+        const reviewRow = row.nextElementSibling;
+        if (reviewRow && reviewRow.classList.contains('review-row')) {
+          link.classList.toggle('expanded');
+          reviewRow.classList.toggle('expanded');
+        }
+      });
+
       tbody.appendChild(row);
+
+      const reviewRow = document.createElement('tr');
+      reviewRow.className = 'review-row';
+      reviewRow.innerHTML = `<td colspan="5" class="review-content">${book.review}</td>`;
+      tbody.appendChild(reviewRow);
+    });
+
+    this.setupExpandAll();
+  }
+
+  setupExpandAll() {
+    const btn = document.getElementById('expandAllBtn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const reviewRows = document.querySelectorAll('.review-row');
+      const links = document.querySelectorAll('.review-link');
+      const allExpanded = btn.textContent === 'collapse all';
+
+      reviewRows.forEach(row => row.classList.toggle('expanded', !allExpanded));
+      links.forEach(link => link.classList.toggle('expanded', !allExpanded));
+      btn.textContent = allExpanded ? 'expand all' : 'collapse all';
     });
   }
 }

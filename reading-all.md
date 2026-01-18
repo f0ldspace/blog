@@ -86,7 +86,7 @@ permalink: /reading/all/
   </div>
 
 <div class="reading-table">
-    <h2>All Books</h2>
+    <h2>All Books <span class="expand-all-link" id="expandAllBtn">expand all</span></h2>
     <table id="booksTable">
       <thead>
         <tr>

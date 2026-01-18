@@ -165,6 +165,42 @@
   font-weight: 500;
 }
 
+/* Expandable review rows */
+.reading-table .review-link {
+  color: var(--link-color);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.reading-table .review-link:hover {
+  opacity: 0.8;
+}
+
+.reading-table .expand-all-link {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: var(--link-color);
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 0.5rem;
+}
+
+.reading-table .review-row {
+  display: none;
+}
+
+.reading-table .review-row.expanded {
+  display: table-row;
+}
+
+.reading-table .review-content {
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  color: var(--code-color-11);
+  font-style: italic;
+  background: rgba(168, 153, 132, 0.05);
+  border-bottom: 1px solid var(--code-color-18);
+}
+
 /* Loading state */
 .loading {
   text-align: center;
