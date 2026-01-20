@@ -1,0 +1,178 @@
+{
+  "generated": "2026-01-20",
+  "summary": {
+    "total": 105,
+    "resolved": 72,
+    "pending": 33,
+    "correct": 49,
+    "incorrect": 23,
+    "brierScore": 0.207,
+    "avgConfidence": 48.6
+  },
+  "calibration": [
+    {
+      "bucket": "0-10",
+      "count": 19,
+      "correct": 0,
+      "actualRate": 0.0
+    },
+    {
+      "bucket": "10-20",
+      "count": 7,
+      "correct": 1,
+      "actualRate": 0.143
+    },
+    {
+      "bucket": "20-30",
+      "count": 1,
+      "correct": 1,
+      "actualRate": 1.0
+    },
+    {
+      "bucket": "30-40",
+      "count": 0,
+      "correct": 0,
+      "actualRate": null
+    },
+    {
+      "bucket": "40-50",
+      "count": 1,
+      "correct": 0,
+      "actualRate": 0.0
+    },
+    {
+      "bucket": "50-60",
+      "count": 2,
+      "correct": 1,
+      "actualRate": 0.5
+    },
+    {
+      "bucket": "60-70",
+      "count": 7,
+      "correct": 1,
+      "actualRate": 0.143
+    },
+    {
+      "bucket": "70-80",
+      "count": 5,
+      "correct": 1,
+      "actualRate": 0.2
+    },
+    {
+      "bucket": "80-90",
+      "count": 9,
+      "correct": 4,
+      "actualRate": 0.444
+    },
+    {
+      "bucket": "90-100",
+      "count": 21,
+      "correct": 16,
+      "actualRate": 0.762
+    }
+  ],
+  "dayOfWeek": {
+    "Monday": {
+      "made": 12,
+      "resolved": 8,
+      "correct": 5
+    },
+    "Tuesday": {
+      "made": 26,
+      "resolved": 12,
+      "correct": 6
+    },
+    "Wednesday": {
+      "made": 26,
+      "resolved": 25,
+      "correct": 20
+    },
+    "Thursday": {
+      "made": 11,
+      "resolved": 5,
+      "correct": 4
+    },
+    "Friday": {
+      "made": 10,
+      "resolved": 8,
+      "correct": 5
+    },
+    "Saturday": {
+      "made": 7,
+      "resolved": 5,
+      "correct": 2
+    },
+    "Sunday": {
+      "made": 13,
+      "resolved": 9,
+      "correct": 7
+    }
+  },
+  "monthlyActivity": {
+    "2025-09": {
+      "made": 62,
+      "resolved": 32
+    },
+    "2025-10": {
+      "made": 15,
+      "resolved": 21
+    },
+    "2025-11": {
+      "made": 0,
+      "resolved": 1
+    },
+    "2025-12": {
+      "made": 17,
+      "resolved": 9
+    },
+    "2026-01": {
+      "made": 11,
+      "resolved": 13
+    }
+  },
+  "categories": {
+    "uncategorized": {
+      "count": 79,
+      "correct": 30,
+      "brierScore": 0.25
+    },
+    "health": {
+      "count": 4,
+      "correct": 1,
+      "brierScore": 0.434
+    },
+    "tech": {
+      "count": 10,
+      "correct": 7,
+      "brierScore": 0.062
+    },
+    "social": {
+      "count": 2,
+      "correct": 1,
+      "brierScore": 0.372
+    },
+    "tech; ai": {
+      "count": 10,
+      "correct": 10,
+      "brierScore": 0.012
+    }
+  },
+  "confidenceDistribution": [
+    {
+      "range": "0-25",
+      "count": 44
+    },
+    {
+      "range": "25-50",
+      "count": 5
+    },
+    {
+      "range": "50-75",
+      "count": 16
+    },
+    {
+      "range": "75-100",
+      "count": 40
+    }
+  ]
+}

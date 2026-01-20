@@ -138,9 +138,34 @@
     }
   }
 
+  // Forecast stats
+  async function loadForecastStats() {
+    try {
+      const response = await fetch('/fatebook-stats.json');
+      if (!response.ok) return;
+      const data = await response.json();
+
+      const container = document.getElementById('forecastStats');
+      if (!container) return;
+
+      const s = data.summary;
+      const accuracy = s.resolved > 0 ? Math.round((s.correct / s.resolved) * 100) + '%' : '-';
+      const resolvedRatio = `${s.resolved}/${s.total}`;
+
+      const cards = container.querySelectorAll('.anki-stat-card');
+      const stats = [s.total, s.brierScore?.toFixed(2) || '-', accuracy, resolvedRatio];
+      cards.forEach((card, i) => {
+        card.querySelector('.anki-stat-value').textContent = stats[i];
+      });
+    } catch (e) {
+      console.error('Error loading forecast stats:', e);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     loadProgrammingStats();
     loadAnkiStats();
     loadReadingStats();
+    loadForecastStats();
   });
 })();
