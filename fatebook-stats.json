@@ -1,13 +1,13 @@
 {
-  "generated": "2026-01-20",
+  "generated": "2026-01-22",
   "summary": {
-    "total": 105,
-    "resolved": 72,
-    "pending": 33,
-    "correct": 49,
-    "incorrect": 23,
-    "brierScore": 0.207,
-    "avgConfidence": 48.6
+    "total": 76,
+    "resolved": 44,
+    "pending": 32,
+    "correct": 34,
+    "incorrect": 10,
+    "brierScore": 0.159,
+    "avgConfidence": 38.7
   },
   "calibration": [
     {
@@ -18,15 +18,15 @@
     },
     {
       "bucket": "10-20",
-      "count": 7,
-      "correct": 1,
-      "actualRate": 0.143
+      "count": 5,
+      "correct": 0,
+      "actualRate": 0.0
     },
     {
       "bucket": "20-30",
-      "count": 1,
-      "correct": 1,
-      "actualRate": 1.0
+      "count": 0,
+      "correct": 0,
+      "actualRate": null
     },
     {
       "bucket": "30-40",
@@ -42,80 +42,80 @@
     },
     {
       "bucket": "50-60",
-      "count": 2,
-      "correct": 1,
-      "actualRate": 0.5
+      "count": 1,
+      "correct": 0,
+      "actualRate": 0.0
     },
     {
       "bucket": "60-70",
-      "count": 7,
-      "correct": 1,
-      "actualRate": 0.143
+      "count": 2,
+      "correct": 0,
+      "actualRate": 0.0
     },
     {
       "bucket": "70-80",
-      "count": 5,
+      "count": 3,
       "correct": 1,
-      "actualRate": 0.2
+      "actualRate": 0.333
     },
     {
       "bucket": "80-90",
-      "count": 9,
-      "correct": 4,
-      "actualRate": 0.444
+      "count": 4,
+      "correct": 2,
+      "actualRate": 0.5
     },
     {
       "bucket": "90-100",
-      "count": 21,
-      "correct": 16,
-      "actualRate": 0.762
+      "count": 9,
+      "correct": 6,
+      "actualRate": 0.667
     }
   ],
   "dayOfWeek": {
     "Monday": {
-      "made": 12,
-      "resolved": 8,
-      "correct": 5
-    },
-    "Tuesday": {
-      "made": 26,
-      "resolved": 12,
-      "correct": 6
-    },
-    "Wednesday": {
-      "made": 26,
-      "resolved": 25,
-      "correct": 20
-    },
-    "Thursday": {
       "made": 11,
       "resolved": 5,
       "correct": 4
     },
-    "Friday": {
-      "made": 10,
-      "resolved": 8,
-      "correct": 5
-    },
-    "Saturday": {
-      "made": 7,
+    "Tuesday": {
+      "made": 19,
       "resolved": 5,
       "correct": 2
     },
+    "Wednesday": {
+      "made": 19,
+      "resolved": 17,
+      "correct": 15
+    },
+    "Thursday": {
+      "made": 10,
+      "resolved": 5,
+      "correct": 3
+    },
+    "Friday": {
+      "made": 1,
+      "resolved": 3,
+      "correct": 3
+    },
+    "Saturday": {
+      "made": 6,
+      "resolved": 2,
+      "correct": 1
+    },
     "Sunday": {
-      "made": 13,
-      "resolved": 9,
-      "correct": 7
+      "made": 10,
+      "resolved": 7,
+      "correct": 6
     }
   },
   "monthlyActivity": {
     "2025-09": {
-      "made": 62,
-      "resolved": 32
+      "made": 39,
+      "resolved": 12
     },
     "2025-10": {
-      "made": 15,
-      "resolved": 21
+      "made": 8,
+      "resolved": 12
     },
     "2025-11": {
       "made": 0,
@@ -126,32 +126,37 @@
       "resolved": 9
     },
     "2026-01": {
-      "made": 11,
-      "resolved": 13
+      "made": 12,
+      "resolved": 12
     }
   },
   "categories": {
     "uncategorized": {
-      "count": 79,
-      "correct": 30,
-      "brierScore": 0.25
+      "count": 25,
+      "correct": 8,
+      "brierScore": 0.1
     },
-    "health": {
-      "count": 4,
-      "correct": 1,
-      "brierScore": 0.434
+    "personal": {
+      "count": 2,
+      "correct": 0,
+      "brierScore": 0.722
     },
     "tech": {
       "count": 10,
-      "correct": 7,
-      "brierScore": 0.062
+      "correct": 5,
+      "brierScore": 0.162
     },
     "social": {
-      "count": 2,
-      "correct": 1,
-      "brierScore": 0.372
+      "count": 18,
+      "correct": 9,
+      "brierScore": 0.231
     },
-    "tech; ai": {
+    "politics": {
+      "count": 11,
+      "correct": 2,
+      "brierScore": 0.297
+    },
+    "ai": {
       "count": 10,
       "correct": 10,
       "brierScore": 0.012
@@ -160,19 +165,19 @@
   "confidenceDistribution": [
     {
       "range": "0-25",
-      "count": 44
+      "count": 42
     },
     {
       "range": "25-50",
-      "count": 5
+      "count": 3
     },
     {
       "range": "50-75",
-      "count": 16
+      "count": 9
     },
     {
       "range": "75-100",
-      "count": 40
+      "count": 22
     }
   ]
 }

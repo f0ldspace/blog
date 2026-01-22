@@ -113,7 +113,7 @@ class ProgrammingVisualizer {
 
   renderManualLanguageChart() {
     const languages = this.aggregateByName(this.filterByType('manual_language'));
-    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'nix', 'ini', 'csv', 'netrw', 'toml'];
+    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'nix', 'ini', 'csv', 'netrw', 'toml', 'conf'];
     const filtered = Object.fromEntries(
       Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
     );
@@ -281,7 +281,7 @@ class ProgrammingVisualizer {
   renderProjectChart() {
     const projects = this.aggregateByName(this.filterByType('project'));
     const sorted = Object.entries(projects)
-      .filter(([name]) => name && name !== 'Unknown' && name.toLowerCase() !== 'blog' && name.toLowerCase() !== 'wiki')
+      .filter(([name]) => name && name !== 'nixos' && name !== 'youtube' && name !== 'bootdev' && name !== 'Leetcode' && name !== 'Unknown' && name.toLowerCase() !== 'blog' && name.toLowerCase() !== 'wiki')
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10);
 
