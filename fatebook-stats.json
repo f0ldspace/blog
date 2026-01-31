@@ -1,12 +1,12 @@
 {
-  "generated": "2026-01-22",
+  "generated": "2026-01-31",
   "summary": {
     "total": 76,
-    "resolved": 44,
-    "pending": 32,
-    "correct": 34,
+    "resolved": 46,
+    "pending": 30,
+    "correct": 36,
     "incorrect": 10,
-    "brierScore": 0.159,
+    "brierScore": 0.153,
     "avgConfidence": 38.7
   },
   "calibration": [
@@ -60,15 +60,15 @@
     },
     {
       "bucket": "80-90",
-      "count": 4,
-      "correct": 2,
-      "actualRate": 0.5
+      "count": 5,
+      "correct": 3,
+      "actualRate": 0.6
     },
     {
       "bucket": "90-100",
-      "count": 9,
-      "correct": 6,
-      "actualRate": 0.667
+      "count": 10,
+      "correct": 7,
+      "actualRate": 0.7
     }
   ],
   "dayOfWeek": {
@@ -89,8 +89,8 @@
     },
     "Thursday": {
       "made": 10,
-      "resolved": 5,
-      "correct": 3
+      "resolved": 7,
+      "correct": 5
     },
     "Friday": {
       "made": 1,
@@ -127,19 +127,14 @@
     },
     "2026-01": {
       "made": 12,
-      "resolved": 12
+      "resolved": 14
     }
   },
   "categories": {
-    "uncategorized": {
-      "count": 25,
-      "correct": 8,
-      "brierScore": 0.1
-    },
     "personal": {
-      "count": 2,
-      "correct": 0,
-      "brierScore": 0.722
+      "count": 3,
+      "correct": 2,
+      "brierScore": 0.249
     },
     "tech": {
       "count": 10,
@@ -155,6 +150,11 @@
       "count": 11,
       "correct": 2,
       "brierScore": 0.297
+    },
+    "uncategorized": {
+      "count": 24,
+      "correct": 8,
+      "brierScore": 0.1
     },
     "ai": {
       "count": 10,

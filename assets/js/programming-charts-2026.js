@@ -46,7 +46,7 @@ class ProgrammingVisualizer {
   }
 
   renderStats() {
-    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', ''];
+    const excluded = ['yaml', 'Unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', ''];
 
     const dailyTotals = this.filterByType('daily_total');
     const totalSeconds = dailyTotals.reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
@@ -78,13 +78,52 @@ class ProgrammingVisualizer {
   }
 
   renderDailyChart() {
-    const dailyTotals = this.filterByType('daily_total');
-    const byDate = {};
-    dailyTotals.forEach(e => {
-      byDate[e.date] = parseFloat(e.totalSeconds);
+    const excluded = ['unknown', 'text', 'git', 'gitignore', 'ini', 'csv', 'markdown', 'netrw', 'toml', 'conf', 'hyprlang', 'scss'];
+    const langEntries = this.filterByType('language');
+
+    // Group by date and language
+    const byDateLang = {};
+    const byDateTotal = {};
+    const langTotals = {};
+    langEntries.forEach(e => {
+      if (!e.date) return;
+      const lang = e.name || 'Unknown';
+      const seconds = parseFloat(e.totalSeconds);
+
+      if (!byDateLang[e.date]) byDateLang[e.date] = {};
+      byDateLang[e.date][lang] = (byDateLang[e.date][lang] || 0) + seconds;
+      byDateTotal[e.date] = (byDateTotal[e.date] || 0) + seconds;
+
+      if (!excluded.includes(lang.toLowerCase())) {
+        langTotals[lang] = (langTotals[lang] || 0) + seconds;
+      }
     });
 
-    const sortedDays = Object.keys(byDate).sort();
+    const sortedDays = Object.keys(byDateLang).sort();
+
+    // Get top 5 languages by total time
+    const topLangs = Object.entries(langTotals)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([lang]) => lang);
+
+    // Build datasets for top languages
+    const datasets = topLangs.map((lang, i) => ({
+      label: lang,
+      data: sortedDays.map(d => ((byDateLang[d][lang] || 0) / 3600).toFixed(2)),
+      backgroundColor: this.colors.primary[i % this.colors.primary.length]
+    }));
+
+    // Add "Other" category for remaining time
+    datasets.push({
+      label: 'Other',
+      data: sortedDays.map(d => {
+        const topTotal = topLangs.reduce((sum, lang) => sum + (byDateLang[d][lang] || 0), 0);
+        const other = (byDateTotal[d] || 0) - topTotal;
+        return (other / 3600).toFixed(2);
+      }),
+      backgroundColor: '#999999'
+    });
 
     new Chart(document.getElementById('dailyChart'), {
       type: 'bar',
@@ -93,19 +132,15 @@ class ProgrammingVisualizer {
           const date = new Date(d + 'T00:00:00');
           return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         }),
-        datasets: [{
-          label: 'Hours',
-          data: sortedDays.map(d => (byDate[d] / 3600).toFixed(2)),
-          backgroundColor: this.colors.primary[0]
-        }]
+        datasets: datasets
       },
       options: {
         responsive: true,
         maintainAspectRatio: true,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true },
-          x: { ticks: { maxTicksLimit: 15 } }
+          y: { beginAtZero: true, stacked: true },
+          x: { stacked: true, ticks: { maxTicksLimit: 15 } }
         }
       }
     });
@@ -113,7 +148,7 @@ class ProgrammingVisualizer {
 
   renderManualLanguageChart() {
     const languages = this.aggregateByName(this.filterByType('manual_language'));
-    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'nix', 'ini', 'csv', 'netrw', 'toml', 'conf'];
+    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'ini', 'csv', 'netrw', 'toml', 'conf', 'hyprlang'];
     const filtered = Object.fromEntries(
       Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
     );
@@ -148,7 +183,7 @@ class ProgrammingVisualizer {
 
   renderAiLanguageChart() {
     const languages = this.aggregateByName(this.filterByType('ai_language'));
-    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'nix', 'ini', 'scss', 'ruby'];
+    const excluded = ['yaml', 'unknown', 'markdown', 'text', 'git', 'gitignore', 'ini', 'scss', 'ruby'];
     const filtered = Object.fromEntries(
       Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
     );
