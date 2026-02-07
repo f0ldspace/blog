@@ -46,7 +46,7 @@ class ProgrammingVisualizer {
   }
 
   renderStats() {
-    const excluded = ['yaml', 'Unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', ''];
+    const excluded = ['yaml', 'Unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'org', ''];
 
     const dailyTotals = this.filterByType('daily_total');
     const totalSeconds = dailyTotals.reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
@@ -78,7 +78,7 @@ class ProgrammingVisualizer {
   }
 
   renderDailyChart() {
-    const excluded = ['unknown', 'text', 'git', 'gitignore', 'ini', 'csv', 'markdown', 'netrw', 'toml', 'conf', 'hyprlang', 'scss'];
+    const excluded = ['unknown', 'text', 'git', 'gitignore', 'ini', 'csv', 'markdown', 'netrw', 'toml', 'conf', 'hyprlang', 'scss', 'taskrc', 'org'];
     const langEntries = this.filterByType('language');
 
     // Group by date and language
@@ -148,7 +148,7 @@ class ProgrammingVisualizer {
 
   renderManualLanguageChart() {
     const languages = this.aggregateByName(this.filterByType('manual_language'));
-    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'ini', 'csv', 'netrw', 'toml', 'conf', 'hyprlang'];
+    const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'ini', 'csv', 'netrw', 'toml', 'conf', 'hyprlang', 'taskrc', 'org'];
     const filtered = Object.fromEntries(
       Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
     );
@@ -183,7 +183,7 @@ class ProgrammingVisualizer {
 
   renderAiLanguageChart() {
     const languages = this.aggregateByName(this.filterByType('ai_language'));
-    const excluded = ['yaml', 'unknown', 'markdown', 'text', 'git', 'gitignore', 'ini', 'scss', 'ruby'];
+    const excluded = ['yaml', 'unknown', 'markdown', 'text', 'git', 'gitignore', 'ini', 'scss', 'ruby', 'org', 'csv', 'css', 'toml', 'json'];
     const filtered = Object.fromEntries(
       Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
     );

@@ -81,7 +81,7 @@ for date_str, hb_data in heartbeats_raw.items():
 
             # Categorize by editor (parsed from user agent)
             user_agent_lower = user_agent.lower()
-            if 'claude' in user_agent_lower:
+            if 'claude' in user_agent_lower or 'opencode' in user_agent_lower:
                 ai_languages[language] += duration
             elif 'neovim' in user_agent_lower or 'vim' in user_agent_lower or 'nvim' in user_agent_lower:
                 manual_languages[language] += duration

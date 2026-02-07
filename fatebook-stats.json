@@ -1,13 +1,13 @@
 {
-  "generated": "2026-01-31",
+  "generated": "2026-02-06",
   "summary": {
-    "total": 76,
+    "total": 77,
     "resolved": 46,
-    "pending": 30,
+    "pending": 31,
     "correct": 36,
     "incorrect": 10,
     "brierScore": 0.153,
-    "avgConfidence": 38.7
+    "avgConfidence": 39.3
   },
   "calibration": [
     {
@@ -78,7 +78,7 @@
       "correct": 4
     },
     "Tuesday": {
-      "made": 19,
+      "made": 20,
       "resolved": 5,
       "correct": 2
     },
@@ -128,11 +128,15 @@
     "2026-01": {
       "made": 12,
       "resolved": 14
+    },
+    "2026-02": {
+      "made": 1,
+      "resolved": 1
     }
   },
   "categories": {
     "personal": {
-      "count": 3,
+      "count": 4,
       "correct": 2,
       "brierScore": 0.249
     },
@@ -177,7 +181,7 @@
     },
     {
       "range": "75-100",
-      "count": 22
+      "count": 23
     }
   ]
 }

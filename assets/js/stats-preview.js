@@ -17,7 +17,7 @@
       const uniqueDays = new Set(dailyTotals.map(e => e.date)).size;
       const avgDaily = uniqueDays > 0 ? (totalSeconds / 3600 / uniqueDays).toFixed(1) : '0';
 
-      const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', ''];
+      const excluded = ['yaml', 'unknown', 'css', 'markdown', 'json', 'text', 'git', 'gitignore', 'org', ''];
       const languages = {};
       entries.filter(e => e.type === 'manual_language').forEach(e => {
         languages[e.name] = (languages[e.name] || 0) + parseFloat(e.totalSeconds);
