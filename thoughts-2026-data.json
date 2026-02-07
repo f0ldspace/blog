@@ -1,0 +1,11 @@
+---
+layout: null
+---
+[
+  {% for thought in site.data.thoughts-2026 %}
+    {
+      "date": {{ thought.Date | jsonify }},
+      "content": {{ thought.Content | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

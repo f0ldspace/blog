@@ -23,3 +23,5 @@ review_date,card_id,button,interval_days,time_seconds,card_type
 "2026-02-05 17:55:18",1770313719873,easy,3,4.831,learning
 "2026-02-05 17:55:22",1770313743992,easy,4,3.563,learning
 "2026-02-06 13:15:39",1769519932919,again,-600,7.158,review
+"2026-02-07 11:45:01",1753394234105,hard,44,5.05,review
+"2026-02-07 11:45:19",1769519932919,good,2,13.426,relearn

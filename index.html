@@ -35,31 +35,6 @@ title: home
 
   <section class="paper-section">
     <h2>
-      <span class="section-number">III.</span>
-      <a href="/anki/2026/">Anki</a> (2026)
-    </h2>
-    <div class="anki-stats-grid" id="ankiStats">
-      <div class="anki-stat-card">
-        <span class="anki-stat-value">-</span>
-        <span class="anki-stat-label">Hours</span>
-      </div>
-      <div class="anki-stat-card">
-        <span class="anki-stat-value">-</span>
-        <span class="anki-stat-label">Avg/Day</span>
-      </div>
-      <div class="anki-stat-card">
-        <span class="anki-stat-value">-</span>
-        <span class="anki-stat-label">Streak</span>
-      </div>
-      <div class="anki-stat-card">
-        <span class="anki-stat-value">-</span>
-        <span class="anki-stat-label">Success</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="paper-section">
-    <h2>
       <span class="section-number">II.</span>
       <a href="/reading/2026/">Reading</a> (2026)
     </h2>
@@ -79,6 +54,31 @@ title: home
       <div class="anki-stat-card">
         <span class="anki-stat-value">-</span>
         <span class="anki-stat-label">Fiction %</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper-section">
+    <h2>
+      <span class="section-number">III.</span>
+      <a href="/anki/2026/">Anki</a> (2026)
+    </h2>
+    <div class="anki-stats-grid" id="ankiStats">
+      <div class="anki-stat-card">
+        <span class="anki-stat-value">-</span>
+        <span class="anki-stat-label">Hours</span>
+      </div>
+      <div class="anki-stat-card">
+        <span class="anki-stat-value">-</span>
+        <span class="anki-stat-label">Avg/Day</span>
+      </div>
+      <div class="anki-stat-card">
+        <span class="anki-stat-value">-</span>
+        <span class="anki-stat-label">Streak</span>
+      </div>
+      <div class="anki-stat-card">
+        <span class="anki-stat-value">-</span>
+        <span class="anki-stat-label">Success</span>
       </div>
     </div>
   </section>
@@ -105,6 +105,23 @@ title: home
         <span class="anki-stat-value">-</span>
         <span class="anki-stat-label">Resolved</span>
       </div>
+    </div>
+  </section>
+
+  <section class="paper-section">
+    <h2>
+      <span class="section-number">V.</span>
+      <a href="/thoughts/">Tweets</a> (2026)
+    </h2>
+    <link rel="stylesheet" href="/assets/css/thoughts.css" />
+    <div class="thoughts-preview" id="thoughtsPreview">
+      {% assign sorted_thoughts = site.data.thoughts-2026 | sort: "Date" |
+      reverse %} {% for thought in sorted_thoughts limit:3 %}
+      <div class="thoughts-preview-entry">
+        <p class="thoughts-preview-content">{{ thought.Content }}</p>
+        <span class="thoughts-preview-time">{{ thought.Date }}</span>
+      </div>
+      {% endfor %}
     </div>
   </section>
 </div>
