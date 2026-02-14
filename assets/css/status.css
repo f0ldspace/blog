@@ -1,0 +1,23 @@
+.status {
+  margin: 0.4rem 0 0 0;
+  font-size: 0.85rem;
+  color: var(--code-color-11, #797593);
+  min-height: 1.4em;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+.status-dot--sleep           { background-color: #9893a5; }
+.status-dot--morning-routine { background-color: #ea9d34; }
+.status-dot--free-time       { background-color: #56949f; }
+.status-dot--light-work      { background-color: #286983; }
+.status-dot--deep-work       { background-color: #b4637a; }
+.status-dot--evening-routine { background-color: #d7827e; }
+.status-dot--off-schedule    { background-color: #907aa9; }

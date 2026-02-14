@@ -183,7 +183,7 @@ class ProgrammingVisualizer {
 
   renderAiLanguageChart() {
     const languages = this.aggregateByName(this.filterByType('ai_language'));
-    const excluded = ['yaml', 'unknown', 'markdown', 'text', 'git', 'gitignore', 'ini', 'scss', 'ruby', 'org', 'csv', 'css', 'toml', 'json'];
+    const excluded = ['yaml', 'unknown', 'markdown', 'text', 'git', 'gitignore', 'ini', 'scss', 'ruby', 'org', 'csv', 'css', 'toml', 'typst', 'json'];
     const filtered = Object.fromEntries(
       Object.entries(languages).filter(([name]) => !excluded.includes(name.toLowerCase()))
     );

@@ -1,13 +1,13 @@
 {
-  "generated": "2026-02-07",
+  "generated": "2026-02-14",
   "summary": {
-    "total": 77,
-    "resolved": 46,
+    "total": 78,
+    "resolved": 47,
     "pending": 31,
-    "correct": 36,
+    "correct": 37,
     "incorrect": 10,
-    "brierScore": 0.153,
-    "avgConfidence": 39.3
+    "brierScore": 0.15,
+    "avgConfidence": 38.9
   },
   "calibration": [
     {
@@ -18,7 +18,7 @@
     },
     {
       "bucket": "10-20",
-      "count": 5,
+      "count": 6,
       "correct": 0,
       "actualRate": 0.0
     },
@@ -88,9 +88,9 @@
       "correct": 15
     },
     "Thursday": {
-      "made": 10,
-      "resolved": 7,
-      "correct": 5
+      "made": 11,
+      "resolved": 8,
+      "correct": 6
     },
     "Friday": {
       "made": 1,
@@ -130,11 +130,16 @@
       "resolved": 14
     },
     "2026-02": {
-      "made": 1,
-      "resolved": 1
+      "made": 2,
+      "resolved": 2
     }
   },
   "categories": {
+    "social": {
+      "count": 19,
+      "correct": 10,
+      "brierScore": 0.215
+    },
     "personal": {
       "count": 4,
       "correct": 2,
@@ -144,11 +149,6 @@
       "count": 10,
       "correct": 5,
       "brierScore": 0.162
-    },
-    "social": {
-      "count": 18,
-      "correct": 9,
-      "brierScore": 0.231
     },
     "politics": {
       "count": 11,
@@ -169,7 +169,7 @@
   "confidenceDistribution": [
     {
       "range": "0-25",
-      "count": 42
+      "count": 43
     },
     {
       "range": "25-50",
