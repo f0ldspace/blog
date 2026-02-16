@@ -52,6 +52,7 @@ if 'data' not in data:
 # Process heartbeats to get editor-language correlation
 manual_languages = defaultdict(float)  # language -> total_seconds
 ai_languages = defaultdict(float)      # language -> total_seconds
+hourly_totals = defaultdict(float)     # hour (0-23) -> total_seconds
 
 for date_str, hb_data in heartbeats_raw.items():
     if not hb_data:
@@ -78,6 +79,10 @@ for date_str, hb_data in heartbeats_raw.items():
 
             if duration <= 0:
                 duration = TIMEOUT
+
+            # Accumulate time-of-day totals
+            hour = datetime.fromtimestamp(time).hour
+            hourly_totals[hour] += duration
 
             # Categorize by editor (parsed from user agent)
             user_agent_lower = user_agent.lower()
@@ -136,6 +141,11 @@ with open('$OUTPUT_FILE', 'w', newline='') as f:
     for lang, secs in ai_languages.items():
         if secs > 0:
             writer.writerow(['', 'ai_language', lang, int(secs)])
+
+    # Hourly coding distribution (aggregated across all days)
+    for hour in range(24):
+        secs = hourly_totals.get(hour, 0)
+        writer.writerow(['', 'hourly', hour, int(secs)])
 
 print("Data exported to $OUTPUT_FILE")
 EOF

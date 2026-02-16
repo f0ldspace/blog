@@ -24,7 +24,7 @@ class ProgrammingVisualizer {
       this.renderAiLanguageChart();
       this.renderAiChart();
       this.renderWeeklyChart();
-      this.renderProjectChart();
+      this.renderHourChart();
     } catch (error) {
       console.error('Error loading programming data:', error);
       document.querySelector('.charts-grid').innerHTML =
@@ -313,31 +313,34 @@ class ProgrammingVisualizer {
     return `${d.getFullYear()}-W${String(weekNo).padStart(2, '0')}`;
   }
 
-  renderProjectChart() {
-    const projects = this.aggregateByName(this.filterByType('project'));
-    const sorted = Object.entries(projects)
-      .filter(([name]) => name && name !== 'nixos' && name !== 'youtube' && name !== 'bootdev' && name !== 'Leetcode' && name !== 'Unknown' && name.toLowerCase() !== 'blog' && name.toLowerCase() !== 'wiki')
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10);
+  renderHourChart() {
+    const hourlyEntries = this.filterByType('hourly');
+    const hourly = {};
+    for (let i = 0; i < 24; i++) hourly[i] = 0;
 
-    new Chart(document.getElementById('projectChart'), {
+    hourlyEntries.forEach(e => {
+      const hour = parseInt(e.name);
+      if (!isNaN(hour)) {
+        hourly[hour] = parseFloat(e.totalSeconds);
+      }
+    });
+
+    new Chart(document.getElementById('hourChart'), {
       type: 'bar',
       data: {
-        labels: sorted.map(([name]) => name),
+        labels: Object.keys(hourly).map(h => `${h}:00`),
         datasets: [{
           label: 'Hours',
-          data: sorted.map(([, secs]) => (secs / 3600).toFixed(1)),
-          backgroundColor: this.colors.primary[1]
+          data: Object.values(hourly).map(s => (s / 3600).toFixed(2)),
+          backgroundColor: this.colors.primary[3]
         }]
       },
       options: {
-        indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: true,
         plugins: { legend: { display: false } },
         scales: {
-          x: { beginAtZero: true },
-          y: { ticks: { autoSkip: false } }
+          y: { beginAtZero: true }
         }
       }
     });

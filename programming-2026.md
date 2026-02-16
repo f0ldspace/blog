@@ -34,9 +34,15 @@ permalink: /programming/2026/
   </div>
 
 <div class="charts-grid">
+<!---
     <div class="chart-container">
       <h2>Hours per Day</h2>
       <canvas id="dailyChart"></canvas>
+    </div>
+--->
+    <div class="chart-container">
+      <h2>Coding by Hour</h2>
+      <canvas id="hourChart"></canvas>
     </div>
     <div class="chart-container">
       <h2>Weekly Trend</h2>
@@ -46,24 +52,14 @@ permalink: /programming/2026/
       <h2>Languages (Manual)</h2>
       <canvas id="manualLanguageChart"></canvas>
     </div>
-
     <div class="chart-container">
       <h2>Languages (AI)</h2>
       <canvas id="aiLanguageChart"></canvas>
     </div>
-
     <div class="chart-container">
       <h2>AI vs Manual Coding</h2>
       <canvas id="aiChart"></canvas>
     </div>
-
-
-
-    <div class="chart-container">
-      <h2>Top Projects</h2>
-      <canvas id="projectChart"></canvas>
-    </div>
-
 </div>
 </div>
 
