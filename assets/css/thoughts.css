@@ -1,129 +1,156 @@
-/* Thoughts Feed - Timeline Styles */
+/* Thoughts Feed - tech dashboard aesthetic */
 .thoughts-container {
   max-width: 100%;
   margin: 0;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
 
 .thoughts-container h1 {
-  margin-bottom: 0.5rem;
-  margin-top: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b5d45;
+  margin: 0 0 0.5rem 0;
+}
+
+.thoughts-container h1::before {
+  content: '//';
+  color: #3d352a;
+  margin-right: 0.5rem;
 }
 
 .thoughts-intro {
-  color: var(--code-color-11);
-  margin-bottom: 2rem;
+  color: #6b5d45;
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Stats */
+/* Stats - dashboard grid style */
 .thoughts-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 1px;
+  background: #2a2520;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
 }
 
 .thoughts-stat-card {
-  background: var(--background-color);
-  border: 1px dashed var(--code-color-18);
-  padding: 1rem;
+  background: #13120f;
+  padding: 0.75rem 0.5rem;
   text-align: center;
+  border: none;
 }
 
 .thoughts-stat-value {
   display: block;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--link-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e8dcc8;
   line-height: 1.2;
 }
 
 .thoughts-stat-label {
   display: block;
-  font-size: 0.7rem;
-  color: var(--code-color-11);
-  margin-top: 0.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: #6b5d45;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.1em;
+  margin-top: 0.15rem;
 }
 
 /* Timeline */
 .thoughts-timeline {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
 }
 
 .thoughts-timeline::before {
   content: '';
   position: absolute;
-  left: 6px;
+  left: 4px;
   top: 0;
   bottom: 0;
   width: 1px;
-  border-left: 1px dashed var(--code-color-18);
+  background: #2a2520;
 }
 
 /* Day group */
 .thoughts-day {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .thoughts-day-header {
   position: relative;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--code-color-5);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.75rem;
-  padding: 0.2rem 0;
+  color: #6b5d45;
+  margin-bottom: 0.5rem;
+  padding: 0.15rem 0;
 }
 
 .thoughts-day-header::before {
   content: '';
   position: absolute;
-  left: -2rem;
+  left: -1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 1px dashed var(--code-color-18);
-  background: var(--background-color);
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  border: 1px solid #2a2520;
+  background: #0d0c0a;
 }
 
 /* Individual thought entry */
 .thought-entry {
   position: relative;
-  margin-bottom: 0.75rem;
-  padding: 0.75rem 1rem;
-  border: 1px dashed var(--code-color-18);
-  background: var(--background-color);
+  margin-bottom: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  background: #13120f;
+  transition: background 0.15s ease;
+}
+
+.thought-entry:hover {
+  background: #1e1b16;
 }
 
 .thought-entry::before {
   content: '';
   position: absolute;
-  left: -1.65rem;
-  top: 1rem;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--code-color-18);
+  left: -1.15rem;
+  top: 0.75rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 1px;
+  background: #3d352a;
 }
 
 .thought-content {
-  color: var(--text-color);
+  color: #a0916f;
+  font-size: 0.8rem;
   line-height: 1.5;
   margin: 0;
 }
 
 .thought-time {
   display: block;
-  font-size: 0.75rem;
-  color: var(--code-color-11);
-  margin-top: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: #3d352a;
+  margin-top: 0.3rem;
 }
 
 .thought-time-relative {
@@ -134,47 +161,51 @@
 .thoughts-loading {
   text-align: center;
   padding: 2rem;
-  color: var(--code-color-11);
+  color: #6b5d45;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
 }
 
 /* Homepage preview - mini timeline */
 .thoughts-preview {
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
   margin-top: 0.5rem;
 }
 
 .thoughts-preview::before {
   content: '';
   position: absolute;
-  left: 4px;
+  left: 3px;
   top: 0;
   bottom: 0;
   width: 1px;
-  border-left: 1px dashed var(--code-color-18);
+  background: #2a2520;
 }
 
 .thoughts-preview-entry {
   position: relative;
-  margin-bottom: 0.6rem;
-  padding: 0.4rem 0.6rem;
-  border: 1px dashed var(--code-color-18);
-  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  background: #13120f;
 }
 
 .thoughts-preview-entry::before {
   content: '';
   position: absolute;
-  left: -1.2rem;
-  top: 0.7rem;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--code-color-18);
+  left: -1rem;
+  top: 0.55rem;
+  width: 3px;
+  height: 3px;
+  border-radius: 1px;
+  background: #3d352a;
 }
 
 .thoughts-preview-content {
-  color: var(--text-color);
+  color: #a0916f;
   line-height: 1.4;
   margin: 0;
   display: -webkit-box;
@@ -184,26 +215,27 @@
 }
 
 .thoughts-preview-time {
-  font-size: 0.7rem;
-  color: var(--code-color-11);
-  margin-top: 0.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: #3d352a;
+  margin-top: 0.15rem;
   display: block;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .thoughts-timeline {
-    padding-left: 1.5rem;
+    padding-left: 1.25rem;
   }
 
   .thoughts-day-header::before {
-    left: -1.5rem;
-    width: 7px;
-    height: 7px;
+    left: -1.25rem;
+    width: 5px;
+    height: 5px;
   }
 
   .thought-entry::before {
-    left: -1.15rem;
+    left: -0.9rem;
   }
 }
 
@@ -213,6 +245,6 @@
   }
 
   .thoughts-stat-value {
-    font-size: 1.4rem;
+    font-size: 0.85rem;
   }
 }

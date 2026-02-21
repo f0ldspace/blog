@@ -7,8 +7,8 @@ permalink: /programming/2026/
 <link rel="stylesheet" href="/assets/css/reading.css">
 
 <div class="reading-container">
-  <h1>Programming Stats 2026</h1>
-  <p class="reading-intro">Coding statistics for 2026, tracked via Wakapi.</p>
+  <h1>Programming 2026</h1>
+  <p class="reading-intro">Tracked via Wakapi</p>
 
 <div class="stats-grid" id="statsGrid">
     <div class="stat-card">

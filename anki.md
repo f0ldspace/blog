@@ -1,41 +1,32 @@
 ---
-layout: academic
+layout: default
 title: /anki
 permalink: /anki/
 ---
 
-<header class="paper-header">
-  <h1>Anki</h1>
-</header>
-<div class="paper-body">
-<section class="paper-section">
-<h2><span class="section-number">I.</span> <a href="/anki/2026">2026</a></h2>
-<div class="anki-stats-grid" id="ankiStats">
-  <div class="anki-stat-card">
-    <span class="anki-stat-value">-</span>
-    <span class="anki-stat-label">Hours Studied</span>
-  </div>
-  <div class="anki-stat-card">
-    <span class="anki-stat-value">-</span>
-    <span class="anki-stat-label">Avg/Day</span>
-  </div>
-  <div class="anki-stat-card">
-    <span class="anki-stat-value">-</span>
-    <span class="anki-stat-label">Streak</span>
-  </div>
-  <div class="anki-stat-card">
-    <span class="anki-stat-value">-</span>
-    <span class="anki-stat-label">Success Rate</span>
-  </div>
-</div>
-</section>
+<link rel="stylesheet" href="/assets/css/home.css">
 
-<section class="paper-section">
-<h2><span class="section-number">II.</span> Previous</h2>
-<ul>
-  <li><a href="/anki/all/">All time</a></li>
-</ul>
-</section>
+<div class="page-header">
+  <span class="page-header-label">// anki</span>
+</div>
+
+<div class="home-grid">
+<div class="home-card">
+<div class="home-card-header"><a href="/anki/2026">2026</a></div>
+<div class="home-card-stats" id="ankiStats">
+<div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">hours</span></div>
+<div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">avg/day</span></div>
+<div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">streak</span></div>
+<div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">success</span></div>
+</div>
+</div>
+
+<div class="home-card">
+<div class="home-card-header">previous</div>
+<div class="home-card-body home-card-list">
+<a class="home-card-link" href="/anki/all/">All time</a>
+</div>
+</div>
 </div>
 
 <script>window.ANKI_DATA_URL = '/anki-2026-data.json';</script>

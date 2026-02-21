@@ -7,8 +7,8 @@ permalink: /forecasts/
 <link rel="stylesheet" href="/assets/css/reading.css">
 
 <div class="reading-container">
-  <h1>Forecast Stats</h1>
-  <p class="reading-intro">Calibration and prediction tracking from <a href="https://fatebook.io" target="_blank">Fatebook</a>.</p>
+  <h1>Forecasts</h1>
+  <p class="reading-intro">Calibration and prediction tracking via <a href="https://fatebook.io" target="_blank">Fatebook</a></p>
 
   <div class="stats-grid" id="statsGrid">
     <div class="stat-card">

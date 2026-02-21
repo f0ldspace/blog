@@ -20,4 +20,4 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 gem "webrick", "~> 1.7"
 
 # Local theme for testing (comment out for production)
-gem "jekyll-theme-console", path: "/home/f0ld/jekyll-theme-console"
+gem "jekyll-theme-console", path: "/home/f0ld/playground/jekyll-theme-console"

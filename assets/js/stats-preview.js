@@ -33,10 +33,11 @@
       const aiSeconds = categories['ai coding'] || 0;
       const aiPercent = totalSeconds > 0 ? ((aiSeconds / totalSeconds) * 100).toFixed(0) : 0;
 
-      const cards = container.querySelectorAll('.anki-stat-card');
+      const cards = container.querySelectorAll('.home-stat, .anki-stat-card');
       const stats = [hours, avgDaily, topLang ? topLang[0] : '-', aiPercent + '%'];
       cards.forEach((card, i) => {
-        card.querySelector('.anki-stat-value').textContent = stats[i];
+        var el = card.querySelector('.home-stat-value, .anki-stat-value');
+        if (el) el.textContent = stats[i];
       });
     } catch (e) {
       console.error('Error loading programming stats:', e);
@@ -87,10 +88,11 @@
       const successful = reviews.filter(r => r.button === 'good' || r.button === 'easy').length;
       const successRate = ((successful / total) * 100).toFixed(0);
 
-      const cards = container.querySelectorAll('.anki-stat-card');
+      const cards = container.querySelectorAll('.home-stat, .anki-stat-card');
       const stats = [hours, avgDaily, streak + 'd', successRate + '%'];
       cards.forEach((card, i) => {
-        card.querySelector('.anki-stat-value').textContent = stats[i];
+        var el = card.querySelector('.home-stat-value, .anki-stat-value');
+        if (el) el.textContent = stats[i];
       });
     } catch (e) {
       console.error('Error loading anki stats:', e);
@@ -108,9 +110,10 @@
       if (!container) return;
 
       if (books.length === 0) {
-        const cards = container.querySelectorAll('.anki-stat-card');
+        const cards = container.querySelectorAll('.home-stat, .anki-stat-card');
         cards.forEach(card => {
-          card.querySelector('.anki-stat-value').textContent = '-';
+          var el = card.querySelector('.home-stat-value, .anki-stat-value');
+          if (el) el.textContent = '-';
         });
         return;
       }
@@ -128,10 +131,11 @@
       const fiction = books.filter(b => b.type === 'Fiction').length;
       const fictionPercent = ((fiction / totalBooks) * 100).toFixed(0);
 
-      const cards = container.querySelectorAll('.anki-stat-card');
+      const cards = container.querySelectorAll('.home-stat, .anki-stat-card');
       const stats = [totalBooks, avgRating, topCat ? topCat[0] : '-', fictionPercent + '%'];
       cards.forEach((card, i) => {
-        card.querySelector('.anki-stat-value').textContent = stats[i];
+        var el = card.querySelector('.home-stat-value, .anki-stat-value');
+        if (el) el.textContent = stats[i];
       });
     } catch (e) {
       console.error('Error loading reading stats:', e);
@@ -152,10 +156,11 @@
       const accuracy = s.resolved > 0 ? Math.round((s.correct / s.resolved) * 100) + '%' : '-';
       const resolvedRatio = `${s.resolved}/${s.total}`;
 
-      const cards = container.querySelectorAll('.anki-stat-card');
+      const cards = container.querySelectorAll('.home-stat, .anki-stat-card');
       const stats = [s.total, s.brierScore?.toFixed(2) || '-', accuracy, resolvedRatio];
       cards.forEach((card, i) => {
-        card.querySelector('.anki-stat-value').textContent = stats[i];
+        var el = card.querySelector('.home-stat-value, .anki-stat-value');
+        if (el) el.textContent = stats[i];
       });
     } catch (e) {
       console.error('Error loading forecast stats:', e);

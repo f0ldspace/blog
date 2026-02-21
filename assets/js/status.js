@@ -1,21 +1,15 @@
 (function () {
-  // Schedule defined in Europe/London time (weekdays Mon-Fri)
-  // Times in minutes from midnight. Events crossing midnight use >1440.
-  // CSS classes used instead of inline styles (CSP blocks inline styles)
   var schedule = [
-    { name: 'Sleep',            startMin: 120,  endMin: 600,  cls: 'status-dot--sleep' },
-    { name: 'Morning Routine',  startMin: 600,  endMin: 660,  cls: 'status-dot--morning-routine' },
-    { name: 'Free Time',        startMin: 660,  endMin: 780,  cls: 'status-dot--free-time' },
-    { name: 'Light Work',       startMin: 780,  endMin: 1020, cls: 'status-dot--light-work' },
-    { name: 'Free Time',        startMin: 1020, endMin: 1380, cls: 'status-dot--free-time' },
-    { name: 'Deep Work',        startMin: 1380, endMin: 1530, cls: 'status-dot--deep-work' },
-    { name: 'Evening Routine',  startMin: 1530, endMin: 1560, cls: 'status-dot--evening-routine' }
+    { name: 'Sleep',            startMin: 120,  endMin: 600,  color: '#4a3d28' },
+    { name: 'Morning Routine',  startMin: 600,  endMin: 660,  color: '#d4763a' },
+    { name: 'Free Time',        startMin: 660,  endMin: 780,  color: '#c8a44e' },
+    { name: 'Light Work',       startMin: 780,  endMin: 1020, color: '#7a8a5a' },
+    { name: 'Free Time',        startMin: 1020, endMin: 1380, color: '#c8a44e' },
+    { name: 'Deep Work',        startMin: 1380, endMin: 1530, color: '#a83a2a' },
+    { name: 'Evening Routine',  startMin: 1530, endMin: 1560, color: '#d4763a' }
   ];
-  // Full cycle: Sleep 02:00-10:00, Morning 10:00-11:00, Free 11:00-13:00,
-  //   Light Work 13:00-17:00, Free 17:00-23:00, Deep Work 23:00-01:30(+1),
-  //   Evening Routine 01:30-02:00(+1)
 
-  var offCls = 'status-dot--off-schedule';
+  var offColor = '#3d352a';
 
   function getUKTime() {
     var now = new Date();
@@ -37,6 +31,8 @@
       weekday: parts.weekday
     };
   }
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
   function formatRemaining(minutes) {
     if (minutes <= 0) return '';
@@ -60,13 +56,11 @@
 
     if (isWeekday) {
       if (day === 'Mon') {
-        // Monday: no tail from Sunday, schedule starts at 10:00
         if (nowMin >= 600) {
           active = true;
           currentMinInCycle = nowMin;
         }
       } else {
-        // Tue-Fri: tail from previous day (00:00-02:00) + own schedule from 02:00
         active = true;
         currentMinInCycle = nowMin;
         if (nowMin < 120) {
@@ -74,7 +68,6 @@
         }
       }
     } else if (isSat) {
-      // Saturday 00:00-02:00 is the tail of Friday's cycle
       if (nowMin < 120) {
         active = true;
         currentMinInCycle = nowMin + 1440;
@@ -82,32 +75,47 @@
     }
 
     if (!active) {
-      return { name: 'Off Schedule', cls: offCls, remaining: -1 };
+      return { name: 'Off Schedule', color: offColor, remaining: -1, progress: 0 };
     }
 
     for (var i = 0; i < schedule.length; i++) {
       var slot = schedule[i];
       if (currentMinInCycle >= slot.startMin && currentMinInCycle < slot.endMin) {
+        var elapsed = currentMinInCycle - slot.startMin;
+        var duration = slot.endMin - slot.startMin;
         var remaining = slot.endMin - currentMinInCycle;
-        return { name: slot.name, cls: slot.cls, remaining: remaining };
+        return {
+          name: slot.name,
+          color: slot.color,
+          remaining: remaining,
+          progress: (elapsed / duration) * 100
+        };
       }
     }
 
-    return { name: 'Off Schedule', cls: offCls, remaining: -1 };
+    return { name: 'Off Schedule', color: offColor, remaining: -1, progress: 0 };
   }
 
   function render() {
     var status = getCurrentStatus();
-    var el = document.getElementById('status');
-    if (!el) return;
+    var uk = getUKTime();
 
-    var html = '<span class="status-dot ' + status.cls + '"></span>';
-    html += '<span class="status-text">' + status.name;
-    if (status.remaining > 0) {
-      html += ' \u2014 ' + formatRemaining(status.remaining);
+    var nameEl = document.getElementById('schedule-name');
+    var barEl = document.getElementById('schedule-bar');
+    var remainEl = document.getElementById('schedule-remaining');
+
+    if (nameEl) {
+      nameEl.innerHTML = '<span class="schedule-dot" style="background-color:' + status.color + '"></span>' + status.name + '<span class="schedule-time">' + pad(uk.hour) + ':' + pad(uk.minute) + '</span>';
     }
-    html += '</span>';
-    el.innerHTML = html;
+
+    if (barEl) {
+      barEl.style.width = status.progress + '%';
+      barEl.style.background = status.color;
+    }
+
+    if (remainEl) {
+      remainEl.textContent = status.remaining > 0 ? formatRemaining(status.remaining) : '';
+    }
   }
 
   render();

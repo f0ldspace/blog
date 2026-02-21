@@ -1,3 +1,13 @@
+/* Chart.js global defaults for Dune dark theme */
+Chart.defaults.color = '#6b5d45';
+Chart.defaults.borderColor = '#2a2520';
+Chart.defaults.elements.arc.borderColor = '#6b5d45';
+Chart.defaults.elements.arc.borderWidth = 2;
+Chart.defaults.scale.grid.color = '#2a2520';
+Chart.defaults.scale.grid.drawBorder = false;
+Chart.defaults.scale.ticks.color = '#6b5d45';
+Chart.defaults.plugins.legend.labels.color = '#6b5d45';
+
 class ReadingVisualizer {
   constructor(dataUrl) {
     this.dataUrl = dataUrl || '/reading-2025-data.json';

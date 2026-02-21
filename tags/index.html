@@ -1,8 +1,14 @@
 ---
-layout: page
+layout: default
 title: /tags
 permalink: /tags/
 ---
+
+<link rel="stylesheet" href="/assets/css/home.css">
+
+<div class="page-header">
+  <span class="page-header-label">// tags</span>
+</div>
 
 <div class="tags-page">
   {% comment %} Collect all tags from posts {% endcomment %} {% assign rawtags =
@@ -10,8 +16,6 @@ permalink: /tags/
   "" %} {% assign rawtags = tag %} {% else %} {% assign rawtags = rawtags |
   append: "," | append: tag %} {% endif %} {% endfor %} {% endfor %} {% assign
   tags = rawtags | split: "," | uniq | sort %}
-
-  <h2>All Tags</h2>
 
   <div class="tag-cloud">
     {% for tag in tags %} {% assign tag_name = tag | strip %} {% if tag_name !=
@@ -39,4 +43,3 @@ permalink: /tags/
   </ul>
   {% endif %} {% endfor %}
 </div>
-

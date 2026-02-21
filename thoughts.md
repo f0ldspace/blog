@@ -8,7 +8,7 @@ permalink: /thoughts/
 
 <div class="thoughts-container">
   <h1>Thoughts</h1>
-  <p class="thoughts-intro">Quick notes, observations, and half-formed ideas.</p>
+  <p class="thoughts-intro">Quick notes, observations, and half-formed ideas</p>
 
   <div class="thoughts-stats">
     <div class="thoughts-stat-card">

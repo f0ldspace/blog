@@ -1,23 +1,61 @@
-.status {
-  margin: 0.4rem 0 0 0;
+/* Schedule Widget - matches arrakis.computer */
+.schedule-block {
+  margin: 1.5rem auto 0;
+  max-width: 400px;
+  background: #151310;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.schedule-body {
+  padding: 1rem;
+}
+
+.schedule-status-name {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
-  color: var(--code-color-11, #797593);
-  min-height: 1.4em;
+  font-weight: 500;
+  color: #e8dcc8;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.status-dot {
+.schedule-time {
+  margin-left: auto;
+  color: #6b5d45;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.schedule-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 0.4em;
-  vertical-align: middle;
+  flex-shrink: 0;
 }
 
-.status-dot--sleep           { background-color: #9893a5; }
-.status-dot--morning-routine { background-color: #ea9d34; }
-.status-dot--free-time       { background-color: #56949f; }
-.status-dot--light-work      { background-color: #286983; }
-.status-dot--deep-work       { background-color: #b4637a; }
-.status-dot--evening-routine { background-color: #d7827e; }
-.status-dot--off-schedule    { background-color: #907aa9; }
+.schedule-progress-track {
+  width: 100%;
+  height: 2px;
+  background: #2a2520;
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.schedule-progress-bar {
+  height: 100%;
+  border-radius: 1px;
+  transition: width 1s ease;
+}
+
+.schedule-remaining {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #6b5d45;
+  text-align: right;
+}

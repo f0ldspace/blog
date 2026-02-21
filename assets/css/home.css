@@ -1,0 +1,257 @@
+/* Homepage dashboard - matches arrakis aesthetic */
+
+.home-schedule {
+  margin-bottom: 1.5rem;
+}
+
+.home-schedule .schedule-block {
+  max-width: 100%;
+}
+
+/* Grid */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #2a2520;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.home-card {
+  background: #13120f;
+  transition: background 0.2s ease;
+}
+
+.home-card:hover {
+  background: #1e1b16;
+}
+
+.home-card-wide {
+  grid-column: 1 / -1;
+}
+
+.home-card-header {
+  padding: 0.75rem 1rem 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b5d45;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home-card-header::before {
+  content: '//';
+  color: #3d352a;
+}
+
+.home-card-header a {
+  color: #a0916f;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.home-card-header a:hover {
+  color: #c8a44e;
+  background: none;
+}
+
+.home-card-year {
+  margin-left: auto;
+  color: #3d352a;
+  font-weight: 400;
+}
+
+/* Stat cards */
+.home-card-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #2a2520;
+  margin: 0 0.75rem 0.75rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.home-stat {
+  background: #0d0c0a;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.home-stat-value {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e8dcc8;
+  line-height: 1.2;
+}
+
+.home-stat-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: #6b5d45;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.15rem;
+}
+
+/* Thoughts in card */
+.home-card-body {
+  padding: 0 0.75rem 0.75rem;
+}
+
+.home-thought {
+  padding: 0.5rem 0.625rem;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  margin-bottom: 0.35rem;
+  background: #0d0c0a;
+}
+
+.home-thought:last-child {
+  margin-bottom: 0;
+}
+
+.home-thought-text {
+  color: #a0916f;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-thought-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #3d352a;
+  margin-top: 0.2rem;
+  display: block;
+}
+
+/* Page header - used on about, reading, anki top-level pages */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #2a2520;
+}
+
+.page-header-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b5d45;
+}
+
+.page-header-contact {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #3d352a;
+}
+
+.page-header-contact a {
+  color: #6b5d45;
+  border-bottom: none;
+}
+
+.page-header-contact a:hover {
+  color: #c8a44e;
+  background: none;
+}
+
+/* Card text body */
+.home-card-text {
+  color: #a0916f;
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+/* Card list body */
+.home-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Goal items */
+.goal-item {
+  padding: 0.4rem 0.625rem;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  background: #0d0c0a;
+  color: #a0916f;
+  font-size: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.goal-item::before {
+  content: '○';
+  position: absolute;
+  left: 0.5rem;
+  color: #3d352a;
+  font-size: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.goal-item.done {
+  color: #6b5d45;
+  text-decoration: line-through;
+  text-decoration-color: #3d352a;
+}
+
+.goal-item.done::before {
+  content: '●';
+  color: #c8a44e;
+}
+
+/* Card links */
+.home-card-link {
+  display: block;
+  padding: 0.4rem 0.625rem;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  background: #0d0c0a;
+  color: #a0916f;
+  font-size: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  text-decoration: none;
+  border-bottom: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.home-card-link:hover {
+  background: #1e1b16;
+  color: #c8a44e;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
