@@ -164,13 +164,16 @@ class ProgrammingVisualizer {
     );
     const sorted = Object.entries(filtered).sort((a, b) => b[1] - a[1]).slice(0, 8);
 
-    const langData = sorted.map(([, secs]) => secs);
+    const allTotal = sorted.reduce((a, [, secs]) => a + secs, 0);
+    const aboveThreshold = sorted.filter(([, secs]) => (secs / allTotal) * 100 >= 5);
+
+    const langData = aboveThreshold.map(([, secs]) => secs);
     const langTotal = langData.reduce((a, b) => a + b, 0);
 
     new Chart(document.getElementById('manualLanguageChart'), {
       type: 'doughnut',
       data: {
-        labels: sorted.map(([lang]) => lang),
+        labels: aboveThreshold.map(([lang]) => lang),
         datasets: [{
           data: langData,
           backgroundColor: this.colors.primary
@@ -199,13 +202,16 @@ class ProgrammingVisualizer {
     );
     const sorted = Object.entries(filtered).sort((a, b) => b[1] - a[1]).slice(0, 8);
 
-    const langData = sorted.map(([, secs]) => secs);
+    const allTotal = sorted.reduce((a, [, secs]) => a + secs, 0);
+    const aboveThreshold = sorted.filter(([, secs]) => (secs / allTotal) * 100 >= 5);
+
+    const langData = aboveThreshold.map(([, secs]) => secs);
     const langTotal = langData.reduce((a, b) => a + b, 0);
 
     new Chart(document.getElementById('aiLanguageChart'), {
       type: 'doughnut',
       data: {
-        labels: sorted.map(([lang]) => lang),
+        labels: aboveThreshold.map(([lang]) => lang),
         datasets: [{
           data: langData,
           backgroundColor: this.colors.primary.slice(2)
