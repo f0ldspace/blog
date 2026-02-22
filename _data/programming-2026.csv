@@ -75,8 +75,8 @@ date,type,name,total_seconds
 2026-02-01,category,ai coding,379
 2026-02-01,category,coding,34
 2026-02-02,daily_total,,76
-2026-02-02,language,Taskrc,38
 2026-02-02,language,Nix,38
+2026-02-02,language,Taskrc,38
 2026-02-02,editor,Neovim,76
 2026-02-02,project,f0ld,38
 2026-02-02,project,landsraad,38
@@ -316,13 +316,15 @@ date,type,name,total_seconds
 2026-02-21,project,landsraad,29
 2026-02-21,category,ai coding,6031
 2026-02-21,category,coding,156
-2026-02-22,daily_total,,4
+2026-02-22,daily_total,,399
+2026-02-22,language,Bash,395
 2026-02-22,language,Python,4
-2026-02-22,editor,Neovim,4
+2026-02-22,editor,Neovim,399
+2026-02-22,project,wofi,395
 2026-02-22,project,unknown,4
-2026-02-22,category,coding,4
+2026-02-22,category,coding,399
 ,manual_language,Nix,18701
-,manual_language,Bash,5677
+,manual_language,Bash,6323
 ,manual_language,Taskrc,601
 ,manual_language,Javascript,1051
 ,manual_language,Json,622
@@ -362,7 +364,7 @@ date,type,name,total_seconds
 ,hourly,7,0
 ,hourly,8,11045
 ,hourly,9,11903
-,hourly,10,12790
+,hourly,10,13436
 ,hourly,11,12269
 ,hourly,12,23012
 ,hourly,13,13511
