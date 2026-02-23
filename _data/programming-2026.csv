@@ -75,8 +75,8 @@ date,type,name,total_seconds
 2026-02-01,category,ai coding,379
 2026-02-01,category,coding,34
 2026-02-02,daily_total,,76
-2026-02-02,language,Nix,38
 2026-02-02,language,Taskrc,38
+2026-02-02,language,Nix,38
 2026-02-02,editor,Neovim,76
 2026-02-02,project,f0ld,38
 2026-02-02,project,landsraad,38
@@ -145,19 +145,19 @@ date,type,name,total_seconds
 2026-02-06,project,f0ld,137
 2026-02-06,category,ai coding,4460
 2026-02-06,category,coding,2277
-2026-02-07,daily_total,,2807
+2026-02-07,daily_total,,2823
 2026-02-07,language,Javascript,1094
 2026-02-07,language,Nix,960
-2026-02-07,language,Html,289
+2026-02-07,language,Html,304
 2026-02-07,language,Bash,180
 2026-02-07,language,Ruby,163
 2026-02-07,language,Yaml,120
-2026-02-07,editor,Opencode,1996
+2026-02-07,editor,Opencode,2012
 2026-02-07,editor,Neovim,811
-2026-02-07,project,blog,1667
+2026-02-07,project,blog,1683
 2026-02-07,project,landsraad,960
 2026-02-07,project,wofi,180
-2026-02-07,category,ai coding,1996
+2026-02-07,category,ai coding,2012
 2026-02-07,category,coding,811
 2026-02-08,daily_total,,1797
 2026-02-08,language,Bash,1060
@@ -294,37 +294,56 @@ date,type,name,total_seconds
 2026-02-19,project,wofi,81
 2026-02-19,category,coding,1834
 2026-02-19,category,ai coding,1465
-2026-02-20,daily_total,,687
-2026-02-20,language,Nix,687
-2026-02-20,editor,Opencode-cli,687
-2026-02-20,project,landsraad,687
-2026-02-20,category,ai coding,687
-2026-02-21,daily_total,,6186
+2026-02-20,daily_total,,1357
+2026-02-20,language,Nix,1357
+2026-02-20,editor,Opencode-cli,1357
+2026-02-20,project,landsraad,1357
+2026-02-20,category,ai coding,1357
+2026-02-21,daily_total,,6278
 2026-02-21,language,Html,2865
 2026-02-21,language,Javascript,1258
-2026-02-21,language,Rust,1048
+2026-02-21,language,Rust,1140
 2026-02-21,language,Scss,587
 2026-02-21,language,Nix,264
 2026-02-21,language,Ruby,162
-2026-02-21,editor,Opencode-cli,6031
+2026-02-21,editor,Opencode-cli,6123
 2026-02-21,editor,Neovim,156
 2026-02-21,project,blog,2545
 2026-02-21,project,arrakis,1520
-2026-02-21,project,predcd,1284
+2026-02-21,project,predcd,1376
 2026-02-21,project,jekyll-theme-console,618
 2026-02-21,project,unknown,190
 2026-02-21,project,landsraad,29
-2026-02-21,category,ai coding,6031
+2026-02-21,category,ai coding,6123
 2026-02-21,category,coding,156
-2026-02-22,daily_total,,399
-2026-02-22,language,Bash,395
+2026-02-22,daily_total,,5418
+2026-02-22,language,Javascript,1899
+2026-02-22,language,Bash,1861
+2026-02-22,language,Html,858
+2026-02-22,language,Rust,484
+2026-02-22,language,Nix,198
+2026-02-22,language,Unknown,112
 2026-02-22,language,Python,4
-2026-02-22,editor,Neovim,399
+2026-02-22,editor,Opencode-cli,4640
+2026-02-22,editor,Neovim,779
+2026-02-22,project,predcd,2394
+2026-02-22,project,unknown,1798
+2026-02-22,project,blog,633
 2026-02-22,project,wofi,395
-2026-02-22,project,unknown,4
-2026-02-22,category,coding,399
+2026-02-22,project,landsraad,198
+2026-02-22,category,ai coding,4640
+2026-02-22,category,coding,779
+2026-02-23,daily_total,,2845
+2026-02-23,language,Html,2236
+2026-02-23,language,Typescript,608
+2026-02-23,editor,Neovim,2671
+2026-02-23,editor,Opencode-cli,173
+2026-02-23,project,vidmaker,2237
+2026-02-23,project,youtube,608
+2026-02-23,category,coding,2671
+2026-02-23,category,ai coding,173
 ,manual_language,Nix,18701
-,manual_language,Bash,6323
+,manual_language,Bash,6650
 ,manual_language,Taskrc,601
 ,manual_language,Javascript,1051
 ,manual_language,Json,622
@@ -332,20 +351,21 @@ date,type,name,total_seconds
 ,manual_language,Netrw,169
 ,manual_language,,244
 ,manual_language,Gitignore,272
-,manual_language,Html,1546
+,manual_language,Html,3521
 ,manual_language,Conf,276
 ,manual_language,Rust,852
 ,manual_language,Toml,51
+,manual_language,Typescript,360
 ,manual_language,Ini,344
 ,manual_language,Org,2087
-,ai_language,Nix,85076
-,ai_language,,8385
-,ai_language,Html,6823
-,ai_language,Javascript,6376
+,ai_language,Nix,90675
+,ai_language,,8858
+,ai_language,Html,8862
+,ai_language,Javascript,14133
 ,ai_language,Scss,1269
-,ai_language,Bash,20879
+,ai_language,Bash,21781
 ,ai_language,Yaml,1517
-,ai_language,Rust,3550
+,ai_language,Rust,6250
 ,ai_language,Ruby,240
 ,ai_language,Python,504
 ,ai_language,Toml,321
@@ -354,8 +374,8 @@ date,type,name,total_seconds
 ,ai_language,Csv,240
 ,ai_language,Ini,34
 ,ai_language,Typst,240
-,hourly,0,2081
-,hourly,1,935
+,hourly,0,3688
+,hourly,1,2677
 ,hourly,2,0
 ,hourly,3,0
 ,hourly,4,0
@@ -364,17 +384,17 @@ date,type,name,total_seconds
 ,hourly,7,0
 ,hourly,8,11045
 ,hourly,9,11903
-,hourly,10,13436
-,hourly,11,12269
-,hourly,12,23012
-,hourly,13,13511
-,hourly,14,6266
+,hourly,10,13643
+,hourly,11,14602
+,hourly,12,27383
+,hourly,13,17741
+,hourly,14,6687
 ,hourly,15,15044
 ,hourly,16,16884
-,hourly,17,15631
+,hourly,17,21470
 ,hourly,18,4437
 ,hourly,19,10250
 ,hourly,20,7761
 ,hourly,21,4886
 ,hourly,22,2170
-,hourly,23,3035
+,hourly,23,4417
