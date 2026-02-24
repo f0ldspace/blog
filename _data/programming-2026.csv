@@ -145,19 +145,19 @@ date,type,name,total_seconds
 2026-02-06,project,f0ld,137
 2026-02-06,category,ai coding,4460
 2026-02-06,category,coding,2277
-2026-02-07,daily_total,,2823
+2026-02-07,daily_total,,2807
 2026-02-07,language,Javascript,1094
 2026-02-07,language,Nix,960
-2026-02-07,language,Html,304
+2026-02-07,language,Html,289
 2026-02-07,language,Bash,180
 2026-02-07,language,Ruby,163
 2026-02-07,language,Yaml,120
-2026-02-07,editor,Opencode,2012
+2026-02-07,editor,Opencode,1996
 2026-02-07,editor,Neovim,811
-2026-02-07,project,blog,1683
+2026-02-07,project,blog,1667
 2026-02-07,project,landsraad,960
 2026-02-07,project,wofi,180
-2026-02-07,category,ai coding,2012
+2026-02-07,category,ai coding,1996
 2026-02-07,category,coding,811
 2026-02-08,daily_total,,1797
 2026-02-08,language,Bash,1060
@@ -333,17 +333,21 @@ date,type,name,total_seconds
 2026-02-22,project,landsraad,198
 2026-02-22,category,ai coding,4640
 2026-02-22,category,coding,779
-2026-02-23,daily_total,,2845
+2026-02-23,daily_total,,3223
 2026-02-23,language,Html,2236
 2026-02-23,language,Typescript,608
-2026-02-23,editor,Neovim,2671
-2026-02-23,editor,Opencode-cli,173
+2026-02-23,language,Nix,345
+2026-02-23,language,Bash,33
+2026-02-23,editor,Neovim,2704
+2026-02-23,editor,Opencode-cli,518
 2026-02-23,project,vidmaker,2237
 2026-02-23,project,youtube,608
-2026-02-23,category,coding,2671
-2026-02-23,category,ai coding,173
-,manual_language,Nix,18701
-,manual_language,Bash,6650
+2026-02-23,project,landsraad,345
+2026-02-23,project,wofi,33
+2026-02-23,category,coding,2704
+2026-02-23,category,ai coding,518
+,manual_language,Nix,18821
+,manual_language,Bash,6683
 ,manual_language,Taskrc,601
 ,manual_language,Javascript,1051
 ,manual_language,Json,622
@@ -358,7 +362,7 @@ date,type,name,total_seconds
 ,manual_language,Typescript,360
 ,manual_language,Ini,344
 ,manual_language,Org,2087
-,ai_language,Nix,90675
+,ai_language,Nix,91701
 ,ai_language,,8858
 ,ai_language,Html,8862
 ,ai_language,Javascript,14133
@@ -375,7 +379,7 @@ date,type,name,total_seconds
 ,ai_language,Ini,34
 ,ai_language,Typst,240
 ,hourly,0,3688
-,hourly,1,2677
+,hourly,1,2710
 ,hourly,2,0
 ,hourly,3,0
 ,hourly,4,0
@@ -383,13 +387,13 @@ date,type,name,total_seconds
 ,hourly,6,0
 ,hourly,7,0
 ,hourly,8,11045
-,hourly,9,11903
+,hourly,9,12929
 ,hourly,10,13643
 ,hourly,11,14602
 ,hourly,12,27383
 ,hourly,13,17741
 ,hourly,14,6687
-,hourly,15,15044
+,hourly,15,15164
 ,hourly,16,16884
 ,hourly,17,21470
 ,hourly,18,4437
