@@ -301,6 +301,90 @@
   border-bottom: 1px solid #2a2520;
 }
 
+/* Goals lists */
+.goals-lists {
+  margin-top: 1.5rem;
+}
+
+.goals-section {
+  margin-bottom: 1.5rem;
+}
+
+.goals-section h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b5d45;
+  margin-bottom: 0.5rem;
+}
+
+.goals-section h2::before {
+  content: '//';
+  color: #3d352a;
+  margin-right: 0.5rem;
+}
+
+.goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #2a2520;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.goal-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: #13120f;
+  font-size: 0.8rem;
+}
+
+.goal-list-item:hover {
+  background: #1e1b16;
+}
+
+.goal-list-item .goal-dot {
+  font-size: 0.55rem;
+  flex-shrink: 0;
+}
+
+.goal-dot-done {
+  color: #59a14f;
+}
+
+.goal-dot-in_progress {
+  color: #f28e2c;
+}
+
+.goal-dot-not_started {
+  color: #6b5d45;
+}
+
+.goal-list-item .goal-name {
+  color: #a0916f;
+  flex: 1;
+}
+
+.goal-list-item .goal-category {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: #3d352a;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.goal-list-item .goal-progress {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #6b5d45;
+}
+
 /* Loading state */
 .loading {
   text-align: center;

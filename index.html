@@ -3,8 +3,8 @@ layout: default
 title: home
 ---
 
-<link rel="stylesheet" href="/assets/css/status.css">
-<link rel="stylesheet" href="/assets/css/home.css">
+<link rel="stylesheet" href="/assets/css/status.css" />
+<link rel="stylesheet" href="/assets/css/home.css" />
 
 <div class="home-schedule">
   <div class="schedule-block">
@@ -18,52 +18,151 @@ title: home
   </div>
 </div>
 
+{% assign latest_post = site.posts.first %}
+{% if latest_post %}
+<div class="home-recent-post">
+  <a href="{{ latest_post.url | relative_url }}" class="home-recent-post-link">
+    <span class="home-recent-post-label">// latest post</span>
+    <span class="home-recent-post-title">{{ latest_post.title }}</span>
+    <span class="home-recent-post-date">{{ latest_post.date | date: "%b %-d, %Y" }}</span>
+  </a>
+</div>
+{% endif %}
+
 <div class="home-grid">
   <div class="home-card">
-    <div class="home-card-header"><a href="/programming/2026/">programming</a> <span class="home-card-year">2026</span></div>
+    <div class="home-card-header">
+      <a href="/programming/2026/"><u>programming</u></a>
+      <span class="home-card-year">2026</span>
+    </div>
     <div class="home-card-stats" id="progStats">
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">hours</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">avg/day</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">top lang</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">ai %</span></div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">hours</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">avg/day</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">top lang</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">ai %</span>
+      </div>
     </div>
   </div>
 
   <div class="home-card">
-    <div class="home-card-header"><a href="/reading/2026/">reading</a> <span class="home-card-year">2026</span></div>
+    <div class="home-card-header">
+      <a href="/reading/2026/"><u>reading</u></a>
+      <span class="home-card-year">2026</span>
+    </div>
     <div class="home-card-stats" id="readingStats">
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">books</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">avg rating</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">top genre</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">fiction %</span></div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">books</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">avg rating</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">top genre</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">fiction %</span>
+      </div>
     </div>
   </div>
 
   <div class="home-card">
-    <div class="home-card-header"><a href="/anki/2026/">anki</a> <span class="home-card-year">2026</span></div>
+    <div class="home-card-header">
+      <a href="/anki/2026/"><u>anki</u></a>
+      <span class="home-card-year">2026</span>
+    </div>
     <div class="home-card-stats" id="ankiStats">
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">hours</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">avg/day</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">streak</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">success</span></div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">hours</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">avg/day</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">streak</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">success</span>
+      </div>
     </div>
   </div>
 
   <div class="home-card">
-    <div class="home-card-header"><a href="/forecasts/">forecasts</a> <span class="home-card-year">all time</span></div>
+    <div class="home-card-header">
+      <a href="/forecasts/"><u>forecasts</u></a>
+      <span class="home-card-year">all time</span>
+    </div>
     <div class="home-card-stats" id="forecastStats">
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">predictions</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">brier</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">accuracy</span></div>
-      <div class="home-stat"><span class="home-stat-value">-</span><span class="home-stat-label">resolved</span></div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">predictions</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">brier</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">accuracy</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">resolved</span>
+      </div>
     </div>
   </div>
 
-  <div class="home-card home-card-wide">
-    <div class="home-card-header"><a href="/thoughts/">tweets</a> <span class="home-card-year">2026</span></div>
+  <div class="home-card">
+    <div class="home-card-header">
+      <a href="/goals/2026/"><u>goals</u></a>
+      <span class="home-card-year">2026</span>
+    </div>
+    <div class="home-card-stats" id="goalsStats">
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">total</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">completed</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">done %</span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat-value">-</span
+        ><span class="home-stat-label">top category</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <div class="home-card-header">
+      <a href="/thoughts/"><u>tweets</u></a>
+      <span class="home-card-year">2026</span>
+    </div>
     <div class="home-card-body">
-      {% assign sorted_thoughts = site.data.thoughts-2026 | sort: "Date" | reverse %}
-      {% for thought in sorted_thoughts limit:3 %}
+      {% assign sorted_thoughts = site.data.thoughts-2026 | sort: "Date" |
+      reverse %} {% for thought in sorted_thoughts limit:1 %}
       <div class="home-thought">
         <p class="home-thought-text">{{ thought.Content }}</p>
         <span class="home-thought-time">{{ thought.Date }}</span>

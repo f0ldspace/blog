@@ -1,4 +1,46 @@
-#!/usr/bin/env bash
+# NOTE: Anki all time
+
+echo "anki-all.sh start"
+sqlite3 ~/.local/share/Anki2/User\ 1/collection.anki2 <<EOF
+.headers on
+.mode csv
+.output _data/anki-all.csv
+SELECT
+  datetime(id/1000, 'unixepoch') as review_date,
+  cid as card_id,
+  CASE ease WHEN 1 THEN 'again' WHEN 2 THEN 'hard' WHEN 3 THEN 'good' WHEN 4 THEN 'easy' END as button,
+  ivl as interval_days,
+  time/1000.0 as time_seconds,
+  CASE type WHEN 0 THEN 'learning' WHEN 1 THEN 'review' WHEN 2 THEN 'relearn' END as card_type
+FROM revlog
+WHERE datetime(id/1000, 'unixepoch') >= '2025-01-01'
+ORDER BY id;
+.quit
+EOF
+echo "anki-all.sh end"
+
+# NOTE: Anki current year
+
+echo "anki.sh start"
+sqlite3 ~/.local/share/Anki2/User\ 1/collection.anki2 <<EOF
+.headers on
+.mode csv
+.output _data/anki-2026.csv
+SELECT
+  datetime(id/1000, 'unixepoch') as review_date,
+  cid as card_id,
+  CASE ease WHEN 1 THEN 'again' WHEN 2 THEN 'hard' WHEN 3 THEN 'good' WHEN 4 THEN 'easy' END as button,
+  ivl as interval_days,
+  time/1000.0 as time_seconds,
+  CASE type WHEN 0 THEN 'learning' WHEN 1 THEN 'review' WHEN 2 THEN 'relearn' END as card_type
+FROM revlog
+WHERE datetime(id/1000, 'unixepoch') >= '2026-01-01'
+ORDER BY id;
+.quit
+EOF
+echo "anki.sh end"
+
+# NOTE: Wakapi Current Year
 
 set -euo pipefail
 
@@ -14,18 +56,18 @@ echo "Fetching Wakapi data from $START_DATE to $END_DATE..."
 
 # Fetch summaries
 SUMMARIES_FILE=$(mktemp)
-curl -s "$WAKAPI_URL/api/compat/wakatime/v1/users/current/summaries?start=$START_DATE&end=$END_DATE&api_key=$WAKAPI_API_KEY" > "$SUMMARIES_FILE"
+curl -s "$WAKAPI_URL/api/compat/wakatime/v1/users/current/summaries?start=$START_DATE&end=$END_DATE&api_key=$WAKAPI_API_KEY" >"$SUMMARIES_FILE"
 
 # Fetch heartbeats for each day to get editor-language correlation
 HEARTBEATS_DIR=$(mktemp -d)
 current_date="$START_DATE"
 while [[ "$current_date" < "$END_DATE" ]] || [[ "$current_date" == "$END_DATE" ]]; do
-    echo "Fetching heartbeats for $current_date..."
-    curl -s "$WAKAPI_URL/api/compat/wakatime/v1/users/current/heartbeats?date=$current_date&api_key=$WAKAPI_API_KEY" > "$HEARTBEATS_DIR/$current_date.json"
-    current_date=$(date -d "$current_date + 1 day" +%Y-%m-%d)
+  echo "Fetching heartbeats for $current_date..."
+  curl -s "$WAKAPI_URL/api/compat/wakatime/v1/users/current/heartbeats?date=$current_date&api_key=$WAKAPI_API_KEY" >"$HEARTBEATS_DIR/$current_date.json"
+  current_date=$(date -d "$current_date + 1 day" +%Y-%m-%d)
 done
 
-python3 << EOF
+python3 <<EOF
 import json
 import csv
 import sys
@@ -151,3 +193,7 @@ print("Data exported to $OUTPUT_FILE")
 EOF
 
 wc -l "$OUTPUT_FILE"
+
+# NOTE: fatebook stats
+
+python _scripts/generate-fatebook-stats.py

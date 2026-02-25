@@ -142,6 +142,37 @@
     }
   }
 
+  // Goals stats
+  async function loadGoalsStats() {
+    try {
+      const response = await fetch('/goals-2026-data.json');
+      if (!response.ok) return;
+      const goals = await response.json();
+
+      const container = document.getElementById('goalsStats');
+      if (!container) return;
+
+      const total = goals.length;
+      const completed = goals.filter(g => g.status === 'done').length;
+      const completionPct = total > 0 ? ((completed / total) * 100).toFixed(0) : 0;
+
+      const categories = {};
+      goals.forEach(g => {
+        categories[g.category] = (categories[g.category] || 0) + 1;
+      });
+      const topCat = Object.entries(categories).sort((a, b) => b[1] - a[1])[0];
+
+      const cards = container.querySelectorAll('.home-stat, .anki-stat-card');
+      const stats = [total, completed, completionPct + '%', topCat ? topCat[0] : '-'];
+      cards.forEach((card, i) => {
+        var el = card.querySelector('.home-stat-value, .anki-stat-value');
+        if (el) el.textContent = stats[i];
+      });
+    } catch (e) {
+      console.error('Error loading goals stats:', e);
+    }
+  }
+
   // Forecast stats
   async function loadForecastStats() {
     try {
@@ -172,5 +203,6 @@
     loadAnkiStats();
     loadReadingStats();
     loadForecastStats();
+    loadGoalsStats();
   });
 })();

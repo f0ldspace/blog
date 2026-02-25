@@ -1,12 +1,12 @@
 {
-  "generated": "2026-02-21",
+  "generated": "2026-02-24",
   "summary": {
     "total": 78,
-    "resolved": 47,
-    "pending": 31,
-    "correct": 37,
+    "resolved": 48,
+    "pending": 30,
+    "correct": 38,
     "incorrect": 10,
-    "brierScore": 0.15,
+    "brierScore": 0.147,
     "avgConfidence": 38.9
   },
   "calibration": [
@@ -60,9 +60,9 @@
     },
     {
       "bucket": "80-90",
-      "count": 5,
-      "correct": 3,
-      "actualRate": 0.6
+      "count": 6,
+      "correct": 4,
+      "actualRate": 0.667
     },
     {
       "bucket": "90-100",
@@ -78,7 +78,7 @@
       "correct": 4
     },
     "Tuesday": {
-      "made": 20,
+      "made": 19,
       "resolved": 5,
       "correct": 2
     },
@@ -88,7 +88,7 @@
       "correct": 15
     },
     "Thursday": {
-      "made": 11,
+      "made": 12,
       "resolved": 8,
       "correct": 6
     },
@@ -104,8 +104,8 @@
     },
     "Sunday": {
       "made": 10,
-      "resolved": 7,
-      "correct": 6
+      "resolved": 8,
+      "correct": 7
     }
   },
   "monthlyActivity": {
@@ -135,20 +135,20 @@
     }
   },
   "categories": {
+    "tech": {
+      "count": 11,
+      "correct": 6,
+      "brierScore": 0.142
+    },
     "social": {
       "count": 19,
       "correct": 10,
       "brierScore": 0.215
     },
     "personal": {
-      "count": 4,
+      "count": 3,
       "correct": 2,
       "brierScore": 0.249
-    },
-    "tech": {
-      "count": 10,
-      "correct": 5,
-      "brierScore": 0.162
     },
     "politics": {
       "count": 11,

@@ -1,0 +1,17 @@
+---
+layout: null
+---
+[
+  {% for goal in site.data.goals-2026 %}
+    {
+      "goal": {{ goal.Goal | jsonify }},
+      "category": {{ goal.Category | jsonify }},
+      "target": {{ goal.Target | jsonify }},
+      "current": {{ goal.Current | jsonify }},
+      "unit": {{ goal.Unit | jsonify }},
+      "status": {{ goal.Status | jsonify }},
+      "dateAdded": {{ goal.DateAdded | jsonify }},
+      "dateCompleted": {{ goal.DateCompleted | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
