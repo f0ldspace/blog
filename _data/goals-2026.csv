@@ -1,14 +1,15 @@
 Goal,Category,Target,Current,Unit,Status,DateAdded,DateCompleted
-Setup f0ld.space,Tech,1,1,binary,done,2026-01-01,2026-01-15
+40ms HRV,Health,40,27,ms,in_progress,2026-02-01,
 Learn Python,Python,1,0,binary,in_progress,2026-01-01,
-Basic understanding of AI,AI,1,0,binary,in_progress,2026-01-01,
-Start learning rust,Rust,1,0,binary,not_started,2026-01-01,
+Think Python,Python,1,0,binary,in_progress,2026-01-01,
+Run a 25 minute 5k,Fitness,1,0,binary,in_progress,2026-01-01,
 90kg Squat,Fitness,90,0,kg,not_started,2026-01-01,
 70kg Bench press,Fitness,70,0,kg,not_started,2026-01-01,
-Run a 25 minute 5k,Fitness,1,0,binary,in_progress,2026-01-01,
 Why machines learn,AI,1,0,binary,not_started,2026-01-01,
 Build an LLM Rashchka,AI,1,0,binary,not_started,2026-01-01,
 Automate the boring stuff with python,Python,1,0,binary,not_started,2026-01-01,
-Think Python,Python,1,0,binary,in_progress,2026-01-01,
 Computer Architecture,Tech,1,0,binary,not_started,2026-01-01,
 How Computers Really Work,Tech,1,0,binary,not_started,2026-01-01,
+50ms HRV,Health,50,0,ms,not_started,2026-02-01,
+60ms HRV,Health,60,0,ms,not_started,2026-02-01,
+Setup f0ld.space,Tech,1,1,binary,done,2026-01-01,2026-01-15
