@@ -8,7 +8,7 @@ permalink: /reading/2026/
 
 <div class="reading-container">
   <h1><b><u>Reading 2026</u></b></h1>
-  <p class="reading-intro"><a href="/reading/all/"><u>All years</u></a> // <a href="/reading/">&larr; back</a></p>
+  <p class="reading-intro"><a href="/reading/all/"><u>All years</u></a> // <a href="/reading/2025">&larr; 2025</a></p>
 
 <div class="stats-grid" id="statsGrid">
     <div class="stat-card">

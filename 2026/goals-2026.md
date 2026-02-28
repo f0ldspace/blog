@@ -10,7 +10,7 @@ permalink: /goals/2026/
   <h1><b><u>Goals 2026</u></b></h1>
   <p class="reading-intro"><a href="/about/">&larr; back</a></p>
 
-  <div class="stats-grid" id="statsGrid">
+<div class="stats-grid" id="statsGrid">
     <div class="stat-card">
       <span class="stat-value" id="statTotal">-</span>
       <span class="stat-label">Total Goals</span>
@@ -33,7 +33,7 @@ permalink: /goals/2026/
     </div>
   </div>
 
-  <div class="charts-grid">
+<div class="charts-grid">
     <div class="chart-container">
       <h2>Category Breakdown</h2>
       <canvas id="categoryChart"></canvas>
@@ -53,9 +53,10 @@ permalink: /goals/2026/
       <h2>Category Progress</h2>
       <canvas id="categoryProgressChart"></canvas>
     </div>
-  </div>
 
-  <div class="goals-lists" id="goalsLists">
+</div>
+
+<div class="goals-lists" id="goalsLists">
     <div class="goals-section" id="goalsInProgress">
       <h2>In Progress</h2>
       <div class="goals-list"></div>
@@ -72,5 +73,5 @@ permalink: /goals/2026/
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<script>window.GOALS_DATA_URL = '/goals-2026-data.json';</script>
+<script>window.GOALS_DATA_URL = '/2026/goals-2026-data.json';</script>
 <script src="/assets/js/goals-charts-2026.js"></script>

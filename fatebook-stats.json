@@ -1,12 +1,12 @@
 {
-  "generated": "2026-02-24",
+  "generated": "2026-02-27",
   "summary": {
     "total": 78,
-    "resolved": 48,
-    "pending": 30,
+    "resolved": 49,
+    "pending": 29,
     "correct": 38,
-    "incorrect": 10,
-    "brierScore": 0.147,
+    "incorrect": 11,
+    "brierScore": 0.157,
     "avgConfidence": 38.9
   },
   "calibration": [
@@ -24,9 +24,9 @@
     },
     {
       "bucket": "20-30",
-      "count": 0,
-      "correct": 0,
-      "actualRate": null
+      "count": 1,
+      "correct": 1,
+      "actualRate": 1.0
     },
     {
       "bucket": "30-40",
@@ -79,7 +79,7 @@
     },
     "Tuesday": {
       "made": 19,
-      "resolved": 5,
+      "resolved": 6,
       "correct": 2
     },
     "Wednesday": {
@@ -131,14 +131,14 @@
     },
     "2026-02": {
       "made": 2,
-      "resolved": 2
+      "resolved": 3
     }
   },
   "categories": {
     "tech": {
       "count": 11,
       "correct": 6,
-      "brierScore": 0.142
+      "brierScore": 0.204
     },
     "social": {
       "count": 19,

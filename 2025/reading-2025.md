@@ -8,7 +8,7 @@ permalink: /reading/2025/
 
 <div class="reading-container">
   <h1>Reading Log 2025</h1>
-  <p class="reading-intro">Visualization of my reading throughout 2025. <a href="/reading/all/">All years</a> // <a href="/reading/">&larr; Previous</a></p>
+  <p class="reading-intro">Visualization of my reading throughout 2025. <a href="/reading/all/">All years</a></p>
 
 <div class="stats-grid" id="statsGrid">
     <div class="stat-card">
@@ -92,5 +92,5 @@ permalink: /reading/2025/
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<script>window.READING_DATA_URL = '/reading-2025-data.json';</script>
+<script>window.READING_DATA_URL = '/2025/reading-2025-data.json';</script>
 <script src="/assets/js/reading-charts.js"></script>

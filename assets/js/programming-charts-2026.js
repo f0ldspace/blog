@@ -10,7 +10,7 @@ Chart.defaults.plugins.legend.labels.color = '#6b5d45';
 
 class ProgrammingVisualizer {
   constructor(dataUrl) {
-    this.dataUrl = dataUrl || '/programming-2026-data.json';
+    this.dataUrl = dataUrl || '/2026/programming-2026-data.json';
     this.entries = [];
     this.colors = {
       primary: ['#4e79a7', '#f28e2c', '#e15759', '#76b7b2', '#59a14f', '#edc949', '#af7aa1', '#ff9da7'],

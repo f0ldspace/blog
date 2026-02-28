@@ -64,5 +64,5 @@ permalink: /programming/2026/
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<script>window.PROGRAMMING_DATA_URL = '/programming-2026-data.json';</script>
+<script>window.PROGRAMMING_DATA_URL = '/2026/programming-2026-data.json';</script>
 <script src="/assets/js/programming-charts-2026.js"></script>

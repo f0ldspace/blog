@@ -10,7 +10,7 @@ Chart.defaults.plugins.legend.labels.color = '#6b5d45';
 
 class AnkiVisualizer {
   constructor(dataUrl) {
-    this.dataUrl = dataUrl || '/anki-2026-data.json';
+    this.dataUrl = dataUrl || '/2026/anki-2026-data.json';
     this.reviews = [];
     this.colors = {
       primary: ['#4e79a7', '#f28e2c', '#e15759', '#76b7b2', '#59a14f', '#edc949'],

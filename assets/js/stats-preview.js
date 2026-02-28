@@ -3,7 +3,7 @@
   // Programming stats
   async function loadProgrammingStats() {
     try {
-      const response = await fetch('/programming-2026-data.json');
+      const response = await fetch('/2026/programming-2026-data.json');
       if (!response.ok) return;
       const entries = await response.json();
 
@@ -47,7 +47,7 @@
   // Anki stats
   async function loadAnkiStats() {
     try {
-      const response = await fetch('/anki-2026-data.json');
+      const response = await fetch('/2026/anki-2026-data.json');
       if (!response.ok) return;
       const reviews = await response.json();
 
@@ -102,7 +102,7 @@
   // Reading stats
   async function loadReadingStats() {
     try {
-      const response = await fetch('/reading-2026-data.json');
+      const response = await fetch('/2026/reading-2026-data.json');
       if (!response.ok) return;
       const books = await response.json();
 
@@ -145,7 +145,7 @@
   // Goals stats
   async function loadGoalsStats() {
     try {
-      const response = await fetch('/goals-2026-data.json');
+      const response = await fetch('/2026/goals-2026-data.json');
       if (!response.ok) return;
       const goals = await response.json();
 

@@ -50,7 +50,7 @@ START_DATE="2026-01-01"
 END_DATE=$(date +%Y-%m-%d)
 
 # NOTE: If you found this via scraping it's a read only API key for a local only running server
-WAKAPI_API_KEY="c9529878-ab79-4856-8048-dbe30e9c2743"
+WAKAPI_API_KEY="eedddab6-aa29-4fdf-8c0d-c9c332ff24eb"
 
 echo "Fetching Wakapi data from $START_DATE to $END_DATE..."
 

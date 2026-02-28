@@ -8,7 +8,7 @@ permalink: /reading/all/
 
 <div class="reading-container">
   <h1>Reading Log - All Years</h1>
-    <p class="reading-intro">Visualization of my reading starting from 2025 onwards. <a href="/reading/all/">All years</a> // <a href="/reading/">&larr; Previous</a></p>
+    <p class="reading-intro">Visualization of my reading starting from 2025 onwards. <a href="/reading/all/">All years</a> // <a href="/reading/2026">&larr; Current</a></p>
   <div class="stats-grid" id="statsGrid">
     <div class="stat-card">
       <span class="stat-value" id="statTotal">-</span>
