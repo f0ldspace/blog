@@ -26,11 +26,9 @@
         .filter(([name]) => !excluded.includes(name.toLowerCase()))
         .sort((a, b) => b[1] - a[1])[0];
 
-      const categories = {};
-      entries.filter(e => e.type === 'category').forEach(e => {
-        categories[e.name] = (categories[e.name] || 0) + parseFloat(e.totalSeconds);
-      });
-      const aiSeconds = categories['ai coding'] || 0;
+      // Use heartbeat-derived ai_time for accurate AI percentage
+      const aiSeconds = entries.filter(e => e.type === 'ai_time')
+        .reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
       const aiPercent = totalSeconds > 0 ? ((aiSeconds / totalSeconds) * 100).toFixed(0) : 0;
 
       const cards = container.querySelectorAll('.home-stat, .anki-stat-card');

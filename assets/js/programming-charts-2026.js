@@ -81,8 +81,9 @@ class ProgrammingVisualizer {
       .sort((a, b) => b[1] - a[1])[0];
     document.getElementById('statTopAiLanguage').textContent = topAiLang ? topAiLang[0] : '-';
 
-    const categories = this.aggregateByName(this.filterByType('category'));
-    const aiSeconds = categories['ai coding'] || 0;
+    // Use heartbeat-derived ai_time for accurate AI percentage
+    const aiTimeEntries = this.filterByType('ai_time');
+    const aiSeconds = aiTimeEntries.reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
     const aiPercent = totalSeconds > 0 ? ((aiSeconds / totalSeconds) * 100).toFixed(0) : 0;
     document.getElementById('statAiPercent').textContent = aiPercent + '%';
   }
@@ -233,11 +234,11 @@ class ProgrammingVisualizer {
   }
 
   renderAiChart() {
-    const categories = this.aggregateByName(this.filterByType('category'));
-    const aiTime = categories['ai coding'] || 0;
-    const codingTime = categories['coding'] || 0;
-    const docsTime = categories['writing docs'] || 0;
-    const manualTime = codingTime + docsTime;
+    // Use heartbeat-derived ai_time/manual_time for accurate classification
+    const manualEntries = this.filterByType('manual_time');
+    const aiEntries = this.filterByType('ai_time');
+    const manualTime = manualEntries.reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
+    const aiTime = aiEntries.reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
 
     const aiData = [manualTime, aiTime];
     const aiTotal = manualTime + aiTime;
@@ -267,21 +268,22 @@ class ProgrammingVisualizer {
   }
 
   renderWeeklyChart() {
-    const categories = this.filterByType('category');
+    // Use heartbeat-derived ai_time/manual_time for accurate classification
+    const manualEntries = this.filterByType('manual_time');
+    const aiEntries = this.filterByType('ai_time');
     const weeklyManual = {};
     const weeklyAi = {};
 
-    categories.forEach(e => {
+    manualEntries.forEach(e => {
       if (!e.date) return;
       const week = this.getISOWeek(e.date);
-      const name = (e.name || '').toLowerCase();
-      const seconds = parseFloat(e.totalSeconds);
+      weeklyManual[week] = (weeklyManual[week] || 0) + parseFloat(e.totalSeconds);
+    });
 
-      if (name === 'coding' || name === 'writing docs') {
-        weeklyManual[week] = (weeklyManual[week] || 0) + seconds;
-      } else if (name === 'ai coding') {
-        weeklyAi[week] = (weeklyAi[week] || 0) + seconds;
-      }
+    aiEntries.forEach(e => {
+      if (!e.date) return;
+      const week = this.getISOWeek(e.date);
+      weeklyAi[week] = (weeklyAi[week] || 0) + parseFloat(e.totalSeconds);
     });
 
     const allWeeks = new Set([...Object.keys(weeklyManual), ...Object.keys(weeklyAi)]);

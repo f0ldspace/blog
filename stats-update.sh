@@ -95,6 +95,8 @@ if 'data' not in data:
 manual_languages = defaultdict(float)  # language -> total_seconds
 ai_languages = defaultdict(float)      # language -> total_seconds
 hourly_totals = defaultdict(float)     # hour (0-23) -> total_seconds
+daily_manual_time = defaultdict(float) # date -> total manual seconds
+daily_ai_time = defaultdict(float)     # date -> total AI seconds
 
 for date_str, hb_data in heartbeats_raw.items():
     if not hb_data:
@@ -128,13 +130,16 @@ for date_str, hb_data in heartbeats_raw.items():
 
             # Categorize by editor (parsed from user agent)
             user_agent_lower = user_agent.lower()
-            if 'claude' in user_agent_lower or 'Unknown' in user_agent_lower or 'opencode' in user_agent_lower:
+            if 'claude' in user_agent_lower or 'Unknown' in user_agent_lower or 'opencode' in user_agent_lower or 'vibe-manual-tracker' in user_agent_lower:
                 ai_languages[language] += duration
+                daily_ai_time[date_str] += duration
             elif 'neovim' in user_agent_lower or 'vim' in user_agent_lower or 'nvim' in user_agent_lower:
                 manual_languages[language] += duration
+                daily_manual_time[date_str] += duration
             # Other editors go to manual
             else:
                 manual_languages[language] += duration
+                daily_manual_time[date_str] += duration
 
     except (TypeError, AttributeError) as e:
         print(f"Warning: Failed to process heartbeats for {date_str}: {e}", file=sys.stderr)
@@ -183,6 +188,16 @@ with open('$OUTPUT_FILE', 'w', newline='') as f:
     for lang, secs in ai_languages.items():
         if secs > 0:
             writer.writerow(['', 'ai_language', lang, int(secs)])
+
+    # Per-day AI vs manual time (derived from heartbeat user agents)
+    all_dates = sorted(set(list(daily_manual_time.keys()) + list(daily_ai_time.keys())))
+    for date in all_dates:
+        manual_secs = daily_manual_time.get(date, 0)
+        ai_secs = daily_ai_time.get(date, 0)
+        if manual_secs > 0:
+            writer.writerow([date, 'manual_time', '', int(manual_secs)])
+        if ai_secs > 0:
+            writer.writerow([date, 'ai_time', '', int(ai_secs)])
 
     # Hourly coding distribution (aggregated across all days)
     for hour in range(24):
