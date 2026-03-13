@@ -81,10 +81,13 @@ class ProgrammingVisualizer {
       .sort((a, b) => b[1] - a[1])[0];
     document.getElementById('statTopAiLanguage').textContent = topAiLang ? topAiLang[0] : '-';
 
-    // Use heartbeat-derived ai_time for accurate AI percentage
+    // Use heartbeat-derived ai_time/manual_time for accurate AI percentage
     const aiTimeEntries = this.filterByType('ai_time');
     const aiSeconds = aiTimeEntries.reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
-    const aiPercent = totalSeconds > 0 ? ((aiSeconds / totalSeconds) * 100).toFixed(0) : 0;
+    const manualTimeEntries = this.filterByType('manual_time');
+    const manualSeconds = manualTimeEntries.reduce((sum, e) => sum + parseFloat(e.totalSeconds), 0);
+    const aiManualTotal = aiSeconds + manualSeconds;
+    const aiPercent = aiManualTotal > 0 ? ((aiSeconds / aiManualTotal) * 100).toFixed(0) : 0;
     document.getElementById('statAiPercent').textContent = aiPercent + '%';
   }
 

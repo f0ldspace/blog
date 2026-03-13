@@ -62,32 +62,38 @@ date,type,name,total_seconds
 2026-03-09,project,landsraad,1128
 2026-03-09,category,ai coding,612
 2026-03-09,category,coding,515
-2026-03-10,daily_total,,2933
+2026-03-10,daily_total,,2957
 2026-03-10,language,Python,2280
 2026-03-10,language,Nix,242
-2026-03-10,language,Unknown,214
+2026-03-10,language,Unknown,238
 2026-03-10,language,Markdown,100
 2026-03-10,language,Ini,95
-2026-03-10,editor,Claude,2672
+2026-03-10,editor,Claude,2696
 2026-03-10,editor,Neovim,261
-2026-03-10,project,vibebencher,2672
+2026-03-10,project,vibebencher,2696
 2026-03-10,project,unknown,261
-2026-03-10,category,ai coding,2672
+2026-03-10,category,ai coding,2696
 2026-03-10,category,coding,261
+2026-03-11,daily_total,,137
+2026-03-11,language,Bash,137
+2026-03-11,editor,Claude,137
+2026-03-11,project,wofi,137
+2026-03-11,category,ai coding,137
 ,manual_language,Nix,2074
 ,manual_language,Bash,903
 ,manual_language,Ini,95
+,manual_language,Python,2281
 ,manual_language,Html,127
 ,manual_language,Taskrc,221
 ,ai_language,Nix,1377
-,ai_language,,2779
-,ai_language,Python,2761
+,ai_language,,2684
+,ai_language,Python,2881
 ,ai_language,Markdown,101
+,ai_language,Bash,427
 ,ai_language,Yaml,209
 ,ai_language,Javascript,2607
 ,ai_language,Html,128
 ,ai_language,Rust,1794
-,ai_language,Bash,307
 2026-03-02,manual_time,,940
 2026-03-02,ai_time,,3669
 2026-03-04,manual_time,,505
@@ -100,7 +106,9 @@ date,type,name,total_seconds
 2026-03-09,manual_time,,530
 2026-03-09,ai_time,,542
 2026-03-10,manual_time,,335
-2026-03-10,ai_time,,3273
+2026-03-10,ai_time,,3298
+2026-03-11,manual_time,,2281
+2026-03-11,ai_time,,120
 ,hourly,0,0
 ,hourly,1,0
 ,hourly,2,0
@@ -115,13 +123,13 @@ date,type,name,total_seconds
 ,hourly,11,269
 ,hourly,12,0
 ,hourly,13,6848
-,hourly,14,3412
+,hourly,14,3437
 ,hourly,15,253
 ,hourly,16,3253
 ,hourly,17,636
 ,hourly,18,0
 ,hourly,19,0
-,hourly,20,323
-,hourly,21,129
+,hourly,20,2123
+,hourly,21,730
 ,hourly,22,0
 ,hourly,23,360
