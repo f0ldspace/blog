@@ -7,5 +7,9 @@ pkgs.mkShell {
     ruby_3_3
     bundler
     sqlite
+    (python3.withPackages (ps: with ps; [
+      ebooklib
+      markdown
+    ]))
   ];
 }

@@ -130,46 +130,6 @@ title: home
     </div>
   </div>
 
-  <div class="home-card">
-    <div class="home-card-header">
-      <a href="/goals/2026/"><u>goals</u></a>
-      <span class="home-card-year">2026</span>
-    </div>
-    <div class="home-card-stats" id="goalsStats">
-      <div class="home-stat">
-        <span class="home-stat-value">-</span
-        ><span class="home-stat-label">total</span>
-      </div>
-      <div class="home-stat">
-        <span class="home-stat-value">-</span
-        ><span class="home-stat-label">completed</span>
-      </div>
-      <div class="home-stat">
-        <span class="home-stat-value">-</span
-        ><span class="home-stat-label">done %</span>
-      </div>
-      <div class="home-stat">
-        <span class="home-stat-value">-</span
-        ><span class="home-stat-label">top category</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="home-card">
-    <div class="home-card-header">
-      <a href="/thoughts/"><u>tweets</u></a>
-      <span class="home-card-year">2026</span>
-    </div>
-    <div class="home-card-body">
-      {% assign sorted_thoughts = site.data.thoughts-2026 | sort: "Date" |
-      reverse %} {% for thought in sorted_thoughts limit:1 %}
-      <div class="home-thought">
-        <p class="home-thought-text">{{ thought.Content }}</p>
-        <span class="home-thought-time">{{ thought.Date }}</span>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
 </div>
 
 <script src="/assets/js/status.js"></script>

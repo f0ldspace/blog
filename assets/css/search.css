@@ -421,6 +421,29 @@
   letter-spacing: 0.1em;
 }
 
+/* EPUB download */
+.epub-download {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.epub-download a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #6b5d45;
+  text-decoration: none;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  background: #13120f;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.epub-download a:hover {
+  background: #1e1b16;
+  color: #c8a44e;
+}
+
 @media (max-width: 768px) {
   .posts-page {
     padding: 1rem 0;

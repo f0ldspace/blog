@@ -87,6 +87,10 @@ permalink: /reading/all/
 
 <div class="reading-table">
     <h2>All Books <span class="expand-all-link" id="expandAllBtn">expand all</span></h2>
+    <div class="reading-search">
+      <input type="text" id="bookSearchInput" placeholder="Search books..." autocomplete="off" />
+      <span class="reading-search-count" id="bookSearchCount"></span>
+    </div>
     <table id="booksTable">
       <thead>
         <tr>

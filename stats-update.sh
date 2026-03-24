@@ -212,3 +212,6 @@ wc -l "$OUTPUT_FILE"
 # NOTE: fatebook stats
 
 python _scripts/generate-fatebook-stats.py
+
+# NOTE: EPUB generation
+python _scripts/generate-epub.py

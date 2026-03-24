@@ -409,6 +409,51 @@ class ReadingVisualizer {
     });
 
     this.setupExpandAll();
+    this.setupSearch();
+  }
+
+  setupSearch() {
+    const input = document.getElementById('bookSearchInput');
+    const countEl = document.getElementById('bookSearchCount');
+    if (!input) return;
+
+    let timer;
+    input.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        const query = input.value.trim().toLowerCase();
+        const terms = query ? query.split(/\s+/) : [];
+        const tbody = document.querySelector('#booksTable tbody');
+        const rows = tbody.querySelectorAll('tr');
+        let visible = 0;
+        let total = 0;
+
+        for (let i = 0; i < rows.length; i += 2) {
+          const dataRow = rows[i];
+          const reviewRow = rows[i + 1];
+          if (!reviewRow) break;
+          total++;
+
+          if (terms.length === 0) {
+            dataRow.style.display = '';
+            reviewRow.style.display = '';
+            reviewRow.classList.remove('expanded');
+            dataRow.querySelector('.review-link')?.classList.remove('expanded');
+            visible++;
+          } else {
+            const text = (dataRow.textContent + ' ' + reviewRow.textContent).toLowerCase();
+            const match = terms.every(t => text.includes(t));
+            dataRow.style.display = match ? '' : 'none';
+            reviewRow.style.display = 'none';
+            reviewRow.classList.remove('expanded');
+            dataRow.querySelector('.review-link')?.classList.remove('expanded');
+            if (match) visible++;
+          }
+        }
+
+        countEl.textContent = terms.length ? `${visible} of ${total} books` : '';
+      }, 200);
+    });
   }
 
   setupExpandAll() {
