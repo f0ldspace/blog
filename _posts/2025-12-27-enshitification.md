@@ -2,7 +2,7 @@
 layout: post
 title: "Enshitification."
 date: 2025-12-27 17:00:00 -0000
-tags: [technology, culture, swe]
+tags: [technology]
 ---
 
 Bad incentive structures are ruining tech with this manifesting in several important ways

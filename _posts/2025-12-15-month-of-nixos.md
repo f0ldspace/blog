@@ -2,7 +2,7 @@
 layout: post
 title: "A Month of using NixOS."
 date: 2025-12-15 17:00:00 -0000
-tags: [linux, nixos, productivity]
+tags: [nixos]
 ---
 
 using nixos for a month gave me headaches, I'm never using anything else.
