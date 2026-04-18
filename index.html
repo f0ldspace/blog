@@ -18,6 +18,12 @@ title: home
   </div>
 </div>
 ---->
+<div class="np-bar" id="nowPlaying" style="display:none">
+  <span class="np-bar-label">// listening</span>
+  <span class="np-bar-track"><span class="np-track"></span> — <span class="np-artist"></span></span>
+  <span class="np-bar-status np-status"></span>
+</div>
+
 {% assign latest_post = site.posts.first %}
 {% if latest_post %}
 <div class="home-recent-post">
@@ -28,14 +34,6 @@ title: home
   </a>
 </div>
 {% endif %}
-
-<div class="home-recent-post" id="nowPlaying" style="display:none">
-  <div class="home-recent-post-link" style="cursor:default">
-    <span class="home-recent-post-label">// listening</span>
-    <span class="home-recent-post-title"><span class="np-track"></span> — <span class="np-artist"></span></span>
-    <span class="home-recent-post-date np-status"></span>
-  </div>
-</div>
 
 <div class="home-grid">
   <div class="home-card">

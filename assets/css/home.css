@@ -8,6 +8,48 @@
   max-width: 100%;
 }
 
+/* Now Playing - thin minimal bar */
+.np-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #2a2520;
+  border-radius: 2px;
+  background: #13120f;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.np-bar-label {
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #3d352a;
+  white-space: nowrap;
+}
+
+.np-bar-track {
+  color: #a0916f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.np-bar-track .np-track {
+  color: #e8dcc8;
+}
+
+.np-bar-status {
+  margin-left: auto;
+  font-size: 0.6rem;
+  color: #3d352a;
+  white-space: nowrap;
+}
+
 /* Recent Post */
 .home-recent-post {
   margin-bottom: 1.5rem;
