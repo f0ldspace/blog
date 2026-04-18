@@ -21,6 +21,10 @@
   transition: background 0.2s ease;
 }
 
+.np-hidden {
+  display: none !important;
+}
+
 .home-now-playing:hover {
   background: #1e1b16;
 }

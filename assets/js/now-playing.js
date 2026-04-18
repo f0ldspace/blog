@@ -1,96 +1,75 @@
 (function() {
   var API_KEY = '97e06ba5d69dbbb34d73bc9052bd32ce';
   var USER = 'f0ldspace';
-  var REFRESH_MS = 30000;
+  var POLL_MS = 30000;
+  var el = document.getElementById('nowPlaying');
+  if (!el) return;
 
-  function timeAgo(dateObj) {
-    if (!dateObj || !dateObj.uts) return '';
-    var now = Math.floor(Date.now() / 1000);
-    var then = parseInt(dateObj.uts, 10);
-    var diff = now - then;
+  var trackEl = el.querySelector('.np-track');
+  var artistEl = el.querySelector('.np-artist');
+  var statusEl = el.querySelector('.np-status');
+  var dotEl = el.querySelector('.np-dot');
+  var artEl = el.querySelector('.np-art');
+
+  function timeAgo(uts) {
+    var diff = Math.floor(Date.now() / 1000) - parseInt(uts, 10);
     if (diff < 60) return 'just now';
     if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
     if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
     return Math.floor(diff / 86400) + 'd ago';
   }
 
-  function update(data) {
-    var container = document.getElementById('nowPlaying');
-    if (!container) return;
+  function render(track, playing) {
+    trackEl.textContent = track.name || '';
+    artistEl.textContent = (track.artist && track.artist['#text']) || '';
 
-    var tracks = data.recenttracks && data.recenttracks.track;
-    if (!tracks || !tracks.length) {
-      container.style.display = 'none';
-      return;
+    if (playing) {
+      dotEl.className = 'np-dot np-dot-active';
+      statusEl.textContent = 'now playing';
+      statusEl.className = 'np-status np-status-live';
+    } else {
+      dotEl.className = 'np-dot np-dot-idle';
+      statusEl.textContent = track.date ? timeAgo(track.date.uts) : '';
+      statusEl.className = 'np-status np-status-idle';
     }
 
-    var track = tracks[0];
-    var isPlaying = track['@attr'] && track['@attr'].nowplaying === 'true';
-    var artist = track.artist && track.artist['#text'] ? track.artist['#text'] : '';
-    var title = track.name || '';
-    var albumArt = '';
-    if (track.image && track.image.length) {
-      var small = track.image.find(function(img) { return img.size === 'small'; });
-      if (small && small['#text']) albumArt = small['#text'];
-    }
-
-    if (!artist && !title) {
-      container.style.display = 'none';
-      return;
-    }
-
-    container.style.display = '';
-
-    var dot = container.querySelector('.np-dot');
-    var trackEl = container.querySelector('.np-track');
-    var artistEl = container.querySelector('.np-artist');
-    var statusEl = container.querySelector('.np-status');
-    var artEl = container.querySelector('.np-art');
-
-    if (dot) {
-      if (isPlaying) {
-        dot.classList.add('np-dot-active');
-        dot.classList.remove('np-dot-idle');
-      } else {
-        dot.classList.remove('np-dot-active');
-        dot.classList.add('np-dot-idle');
+    var img = '';
+    if (track.image) {
+      for (var i = 0; i < track.image.length; i++) {
+        if (track.image[i].size === 'small' && track.image[i]['#text']) {
+          img = track.image[i]['#text'];
+          break;
+        }
       }
     }
-
-    if (trackEl) trackEl.textContent = title;
-    if (artistEl) artistEl.textContent = artist;
-    if (statusEl) {
-      if (isPlaying) {
-        statusEl.textContent = 'now playing';
-        statusEl.classList.add('np-status-live');
-        statusEl.classList.remove('np-status-idle');
-      } else {
-        statusEl.textContent = timeAgo(track.date);
-        statusEl.classList.remove('np-status-live');
-        statusEl.classList.add('np-status-idle');
-      }
+    if (img) {
+      artEl.style.backgroundImage = 'url(' + img + ')';
+      artEl.style.display = '';
+    } else {
+      artEl.style.display = 'none';
     }
 
-    if (artEl) {
-      if (albumArt) {
-        artEl.style.backgroundImage = 'url(' + albumArt + ')';
-        artEl.style.display = '';
-      } else {
-        artEl.style.display = 'none';
-      }
-    }
+    el.style.display = '';
   }
 
-  function fetchNowPlaying() {
-    var url = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' +
-      USER + '&api_key=' + API_KEY + '&format=json&limit=1';
-
-    fetch(url)
-      .then(function(res) { return res.json(); })
-      .then(update)
-      .catch(function(e) { console.error('Error fetching now playing:', e); });
+  function poll() {
+    fetch('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' +
+      USER + '&api_key=' + API_KEY + '&format=json&limit=1')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var tracks = data && data.recenttracks && data.recenttracks.track;
+        if (!tracks) return;
+        if (!Array.isArray(tracks)) tracks = [tracks];
+        if (!tracks.length) return;
+        var t = tracks[0];
+        var playing = !!(t['@attr'] && t['@attr'].nowplaying === 'true');
+        render(t, playing);
+      })
+      .catch(function(e) {
+        console.error('[now-playing]', e);
+      });
   }
 
-  fetchNowPlaying();
-  setInterval(fetchNowPlaying, REFRESH_MS);
+  poll();
+  setInterval(poll, POLL_MS);
 })();
