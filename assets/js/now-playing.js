@@ -1,15 +1,9 @@
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   var API_KEY = '97e06ba5d69dbbb34d73bc9052bd32ce';
   var USER = 'f0ldspace';
   var POLL_MS = 30000;
   var el = document.getElementById('nowPlaying');
   if (!el) return;
-
-  var trackEl = el.querySelector('.np-track');
-  var artistEl = el.querySelector('.np-artist');
-  var statusEl = el.querySelector('.np-status');
-  var dotEl = el.querySelector('.np-dot');
-  var artEl = el.querySelector('.np-art');
 
   function timeAgo(uts) {
     var diff = Math.floor(Date.now() / 1000) - parseInt(uts, 10);
@@ -19,57 +13,41 @@
     return Math.floor(diff / 86400) + 'd ago';
   }
 
-  function render(track, playing) {
-    trackEl.textContent = track.name || '';
-    artistEl.textContent = (track.artist && track.artist['#text']) || '';
-
-    if (playing) {
-      dotEl.className = 'np-dot np-dot-active';
-      statusEl.textContent = 'now playing';
-      statusEl.className = 'np-status np-status-live';
-    } else {
-      dotEl.className = 'np-dot np-dot-idle';
-      statusEl.textContent = track.date ? timeAgo(track.date.uts) : '';
-      statusEl.className = 'np-status np-status-idle';
-    }
-
-    var img = '';
-    if (track.image) {
-      for (var i = 0; i < track.image.length; i++) {
-        if (track.image[i].size === 'small' && track.image[i]['#text']) {
-          img = track.image[i]['#text'];
-          break;
-        }
-      }
-    }
-    if (img) {
-      artEl.style.backgroundImage = 'url(' + img + ')';
-      artEl.style.display = '';
-    } else {
-      artEl.style.display = 'none';
-    }
-
-    el.style.display = '';
-  }
-
   function poll() {
-    fetch('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' +
-      USER + '&api_key=' + API_KEY + '&format=json&limit=1')
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        var tracks = data && data.recenttracks && data.recenttracks.track;
-        if (!tracks) return;
-        if (!Array.isArray(tracks)) tracks = [tracks];
-        if (!tracks.length) return;
-        var t = tracks[0];
-        var playing = !!(t['@attr'] && t['@attr'].nowplaying === 'true');
-        render(t, playing);
-      })
-      .catch(function(e) {
-        console.error('[now-playing]', e);
-      });
+    var url = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks' +
+      '&user=' + USER + '&api_key=' + API_KEY + '&format=json&limit=1';
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onload = function() {
+      if (xhr.status !== 200) return;
+      try {
+        var data = JSON.parse(xhr.responseText);
+      } catch(e) { return; }
+      var tracks = data && data.recenttracks && data.recenttracks.track;
+      if (!tracks) return;
+      if (!Array.isArray(tracks)) tracks = [tracks];
+      if (!tracks.length) return;
+
+      var t = tracks[0];
+      var playing = !!(t['@attr'] && t['@attr'].nowplaying === 'true');
+      var name = t.name || '';
+      var artist = (t.artist && t.artist['#text']) || '';
+      if (!name && !artist) return;
+
+      var status = playing ? 'now playing' : (t.date ? timeAgo(t.date.uts) : '');
+
+      el.querySelector('.np-track').textContent = name;
+      el.querySelector('.np-artist').textContent = artist;
+      el.querySelector('.np-status').textContent = status;
+      el.style.display = '';
+    };
+    xhr.onerror = function() {
+      console.error('[now-playing] XHR error');
+    };
+    xhr.send();
   }
 
   poll();
   setInterval(poll, POLL_MS);
-})();
+});
