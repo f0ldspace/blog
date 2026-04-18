@@ -29,6 +29,20 @@ title: home
 </div>
 {% endif %}
 
+<div class="home-now-playing" id="nowPlaying" style="display:none">
+  <div class="np-art" style="display:none"></div>
+  <div class="np-body">
+    <div class="np-main">
+      <span class="np-label">// listening</span>
+      <span class="np-dot np-dot-idle"></span>
+      <span class="np-track" id="np-track"></span>
+      <span class="np-sep">—</span>
+      <span class="np-artist" id="np-artist"></span>
+    </div>
+    <span class="np-status np-status-idle" id="np-status"></span>
+  </div>
+</div>
+
 <div class="home-grid">
   <div class="home-card">
     <div class="home-card-header">
@@ -134,3 +148,4 @@ title: home
 
 <script src="/assets/js/status.js"></script>
 <script src="/assets/js/stats-preview.js"></script>
+<script src="/assets/js/now-playing.js"></script>
