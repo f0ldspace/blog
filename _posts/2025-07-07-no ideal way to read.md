@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "There is no ideal way to read."
+title: There is no ideal way to read.
 date: 2025-07-07 17:00:00 -0000
-tags: [reading]
+tags:
+  - reading
 ---
 
 ![readform](/assets/images/readform.png) If you want to save time you can

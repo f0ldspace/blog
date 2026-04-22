@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Wofi and the joy of automation."
+title: Wofi and the joy of automation.
 date: 2026-01-18 17:00:00 -0000
-tags: [technology, nixos]
+tags:
+  - technology
 ---
 
 I recently started using wofi to automate some stuff on my system[^1] nothing that'll be that interesting but it's not about making something other people use, it's about making something that stops you from having to do something. You can decrease the amount of work required for a given result - anything on a computer, anything that can be done by a computer can be automated it's just a matter of if you're smart enough to automate it.

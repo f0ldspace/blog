@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "If the UK were competent."
+title: If the UK were competent.
 date: 2025-12-19 17:00:00 -0000
-tags: [politics]
+tags:
+  - politics
 ---
 
 The british government has become increasingly involved in regulating tech, I'm not going to talk about their specific implementations because mostly it's unknown and highly speculative. Considering the public outcry it's clear the government has no intention to listen to the people on the issue of regulation which considering how technically illiterate the average person is this is not the worst thing in the world, I'm going to work under the assumption that the government is honest about their intentions because anything else requires me to make up completely unsupported headcannon and fanfics about politicians and political parties the other only requires me to believe the government is mostly incompetant.
