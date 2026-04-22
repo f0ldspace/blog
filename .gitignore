@@ -12,3 +12,5 @@ _posts/2026-01-01-template.md
 _posts/template.md
 fatebook-forecasts.csv
 todo
+/todo.md
+/_scripts/generate-fatebook-stats.py
