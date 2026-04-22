@@ -46,10 +46,15 @@ def parse_frontmatter(content):
 
 
 def collect_posts():
-    """Collect and parse all blog posts, sorted chronologically (oldest first)."""
+    """Collect and parse all blog posts tracked by git, sorted chronologically."""
     posts = []
-    for filepath in sorted(glob.glob(os.path.join(POSTS_DIR, '*.md'))):
-        filename = os.path.basename(filepath)
+
+    # Only include posts tracked by git (excludes work-in-progress drafts)
+    result = os.popen(f'git -C "{POSTS_DIR}" ls-files "*.md"')
+    git_files = [line.strip() for line in result if line.strip()]
+
+    for filename in git_files:
+        filepath = os.path.join(POSTS_DIR, filename)
 
         # Skip templates or drafts
         if filename.startswith('_'):

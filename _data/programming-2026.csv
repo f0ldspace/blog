@@ -384,16 +384,18 @@ date,type,name,total_seconds
 2026-04-20,editor,Neovim,1618
 2026-04-20,project,landsraad,1618
 2026-04-20,category,coding,1618
-2026-04-22,daily_total,,1781
-2026-04-22,language,Markdown,1135
+2026-04-22,daily_total,,2206
+2026-04-22,language,Markdown,1484
 2026-04-22,language,Nix,473
 2026-04-22,language,Python,173
-2026-04-22,editor,Opencode-cli,1309
+2026-04-22,language,Bash,75
+2026-04-22,editor,Opencode-cli,1734
 2026-04-22,editor,Neovim,473
 2026-04-22,project,unknown,930
 2026-04-22,project,landsraad,473
+2026-04-22,project,blog,425
 2026-04-22,project,vibe-bencher,378
-2026-04-22,category,ai coding,1309
+2026-04-22,category,ai coding,1734
 2026-04-22,category,coding,473
 ,manual_language,Python,15777
 ,manual_language,Gitignore,240
@@ -413,8 +415,8 @@ date,type,name,total_seconds
 ,ai_language,Yaml,449
 ,ai_language,Typescript,120
 ,ai_language,Groovy,118
-,ai_language,Bash,2306
-,ai_language,Markdown,2412
+,ai_language,Bash,2381
+,ai_language,Markdown,2974
 ,ai_language,Toml,1786
 ,ai_language,Rust,2356
 ,ai_language,Json,6594
@@ -494,7 +496,7 @@ date,type,name,total_seconds
 2026-04-20,manual_time,,901
 2026-04-21,manual_time,,120
 2026-04-22,manual_time,,257
-2026-04-22,ai_time,,3551
+2026-04-22,ai_time,,4188
 ,hourly,0,3662
 ,hourly,1,465
 ,hourly,2,0
@@ -518,4 +520,4 @@ date,type,name,total_seconds
 ,hourly,20,7838
 ,hourly,21,8145
 ,hourly,22,11123
-,hourly,23,2322
+,hourly,23,2959
